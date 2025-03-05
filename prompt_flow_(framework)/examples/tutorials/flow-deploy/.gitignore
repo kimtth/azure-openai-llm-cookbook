@@ -1,4 +1,0 @@
-*.sqlite
-**/build/flow
-**/build/connections
-**/build/settings.json

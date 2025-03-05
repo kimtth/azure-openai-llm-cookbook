@@ -1,1 +1,0 @@
-promptflow[azure]>=1.11.0

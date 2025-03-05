@@ -1,15 +1,116 @@
-# Azure OpenAI Showcase
+# Azure OpenAI Samples
 
-## 📌 Quick Reference: Code Cookbook Collection
+![Static Badge](https://img.shields.io/badge/llm-azure_openai-blue?style=flat-square) ![GitHub Created At](https://img.shields.io/github/created-at/kimtth/azure-openai-samples?style=flat-square)
+
+## 📌 Quick Reference: Code Cookbook / Sample Code Collection
 
 > [!NOTE] 
 > To explore relevant demo codes across various repositories, you'll need to click through serveral pages and review them back and forth.
 > 
-> This repository is reducing the time for reviewing the code and topic-based reclassification, and it contains demo code copied from various sources to showcase minimal implementations.
+> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations.
 
-> [!IMPORTANT]
-> 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.
-> 🔹Disclaimer: This repository is created for collecting sample codes. Configuration for execution is not covered, and it includes code that does not use Azure OpenAI.
+> [!IMPORTANT]  
+> 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
+> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs. The focus is on collecting samples relevant to Azure OpenAI and OpenAI as much as possible.
+
+## 📖 Repository structure
+
+## :file_folder: agent
+- agent_debates_with_tools
+- agent_multi-agent_pattern
+- agent_planning_pattern
+- agent_react_pattern
+- agent_reflection_pattern
+- agent_tool_use_pattern
+- role_playing
+
+## :file_folder: azure
+- azure_ai_foundry_sft_finetuning
+- azure_ai_search
+- azure_bot
+- azure_cosmos_db
+- azure_postgres_db
+- azure_sql_db
+- sharepoint_azure_function
+
+## :file_folder: data
+- azure_oai_usage_stats_(power_bi)
+- chain-of-thought
+- fabric_cosmosdb_chat_analytics
+- presidio_(redaction)
+- prompt_buddy_(power_app)
+- sammo_(prompt_opt)
+- semantic_chunking_(rag)
+
+## :file_folder: eval_safety
+- evaluation_llm_as_judge
+- guardrails
+- pyrit_(safety_eval)
+
+## :file_folder: framework_dev
+- autogen_(framework)
+- code_editor_(vscode)
+- diagram_to_infra_template
+- e2e_testing_agent
+- gui_automation
+- guidance_(framework)
+- magentic-one_(agent)
+- mcp_(model_context_protocol)
+- memory_for_llm
+- mini-copilot
+- omniparser_(gui)
+- prompt_flow_(framework)
+- semantic_kernel_(framework)
+- tiny_troupe_(framework)
+
+## :file_folder: industry
+- auto_insurance_claims
+- career_assistant_agent
+- contract_review
+- customer_support_agent
+- damage_insurance_claims
+- invoice_+_sku_matching
+- invoice_payments
+- invoice_unit_standardization
+- music_compositor_agent
+- news_summarization_agent
+- nyc_taxi_pickup_(ui)
+- patient_case_summary
+- project_management
+- stock_analysis
+- travel_planning_agent
+
+## :file_folder: multi_modal
+- image_gen
+- video_understanding
+- vision_rag
+- visualize_embedding
+- voice_audio
+
+## :file_folder: nlp
+- multilingual_translation_(co-op-translator)
+- search_the_internet_and_summarize
+- sentiment_analysis_for_customer_feedback
+- translate_manga_into_english
+- txt2sql
+
+## :file_folder: rag
+- adaptive-rag
+- agentic_rag
+- contextual_retrieval_(rag)
+- corrective_rag
+- fusion_retrieval_reranking_(rag)
+- graphrag
+- hyde_(rag)
+- query_rewriting_(rag)
+- raptor_(rag)
+- self_rag
+
+## :file_folder: research_analysis
+- analysis_of_twitter_the-algorithm_source_code
+- deep_research
+- openai_code_interpreter
+- r&d-agent
 
 ## 📚 References  
 
@@ -20,3 +121,65 @@
 - [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)  
 - [GenAI Agents by NirDiamant](https://github.com/NirDiamant/GenAI_Agents)  
 - [RAG Techniques by NirDiamant](https://github.com/NirDiamant/RAG_Techniques)
+
+## :computer: Microsoft Frameworks and Libraries
+
+1. [Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/) (Feb 2023): An open-source SDK for integrating AI services like OpenAI, Azure OpenAI, and Hugging Face with conventional programming languages such as C# and Python. It's an LLM orchestrator, similar to LangChain. / [git](https://github.com/microsoft/semantic-kernel) / [x-ref](sk_dspy.md/#semantic-kernel)
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/semantic-kernel?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [Azure ML Prompt Flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) (Jun 2023): A visual designer for prompt crafting using Jinja as a prompt template language. / [ref](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/harness-the-power-of-large-language-models-with-azure-machine/ba-p/3828459) / [git](https://github.com/microsoft/promptflow)
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/promptflow?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [SAMMO](https://github.com/microsoft/sammo) (Apr 2024): A general-purpose framework for prompt optimization. / [ref](https://www.microsoft.com/en-us/research/blog/sammo-a-general-purpose-framework-for-prompt-optimization/)
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/sammo?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [guidance](https://github.com/microsoft/guidance) (Nov 2022): A domain-specific language (DSL) for controlling large language models, focusing on model interaction and implementing the "Chain of Thought" technique.
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/guidance?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [Autogen](https://github.com/microsoft/autogen) (Mar 2023): A customizable and conversable agent framework. / [ref](https://www.microsoft.com/en-us/research/blog/autogen-enabling-next-generation-large-language-model-applications/) / [Autogen Studio](https://www.microsoft.com/en-us/research/blog/introducing-autogen-studio-a-low-code-interface-for-building-multi-agent-workflows/) (June 2024)
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/autogen?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [UFO](https://github.com/microsoft/UFO) (Mar 2024): A UI-focused agent for Windows OS interaction.
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/UFO?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [OmniParser](https://github.com/microsoft/OmniParser) (Sep 2024): A simple screen parsing tool towards pure vision based GUI agent.
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/OmniParser?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [TinyTroupe](https://github.com/microsoft/TinyTroupe): LLM-powered multiagent persona simulation for imagination enhancement and business insights. [Mar 2024] ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/TinyTroupe?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [RD-Agent](https://github.com/microsoft/RD-Agent): open source R&D automation tool [ref](https://rdagent.azurewebsites.net/) [Apr 2024]
+ ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/RD-Agent?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [Magentic-One](https://aka.ms/magentic-one): Built on AutoGen. A Generalist Multi-Agent System for Solving Complex Tasks [Nov 2024]
+1. [PyRIT](https://github.com/Azure/PyRIT) (Dec 2023): Python Risk Identification Tool for generative AI, focusing on LLM robustness against issues like hallucination, bias, and harassment.
+ ![GitHub Repo stars](https://img.shields.io/github/stars/Azure/PyRIT?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [Presidio](https://github.com/microsoft/presidio): Presidio (Origin from Latin praesidium ‘protection, garrison’). Context aware, pluggable and customizable data protection and de-identification SDK for text and images. [Oct 2019]
+1. [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/): Fabric integrates technologies like Azure Data Factory, Azure Synapse Analytics, and Power BI into a single unified product [May 2023]
+
+## :arrow_right: Convert ipynb to Python
+
+- To convert a Jupyter notebook (.ipynb) into a runnable Python scrip
+
+```bash
+pip install nbformat nbconvert
+```
+
+```python
+import nbformat
+from nbconvert import PythonExporter
+
+# Load the notebook
+notebook_filename = 'your_notebook.ipynb'
+with open(notebook_filename, 'r', encoding='utf-8') as notebook_file:
+    notebook_content = nbformat.read(notebook_file, as_version=4)
+
+# Convert the notebook to a Python script
+python_exporter = PythonExporter()
+python_code, _ = python_exporter.from_notebook_node(notebook_content)
+
+# Save the converted Python code to a .py file
+python_filename = notebook_filename.replace('.ipynb', '.py')
+with open(python_filename, 'w', encoding='utf-8') as python_file:
+    python_file.write(python_code)
+
+print(f"Notebook converted to Python script: {python_filename}")
+```
+
+## **Contributor** 👀
+
+<a href="https://github.com/kimtth/azure-openai-samples/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kimtth/azure-openai-samples" />
+</a>
+
+ⓒ `https://github.com/kimtth` all rights reserved.

@@ -1,0 +1,18 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+inputs:
+  input:
+    type: string
+    default: Microsoft
+outputs:
+  output:
+    type: string
+    reference: ${Tool_with_FilePath_Input.output}
+nodes:
+- name: Tool_with_FilePath_Input
+  type: python
+  source:
+    type: package
+    tool: my_tool_package.tools.tool_with_file_path_input.my_tool
+  inputs:
+    input_text: ${inputs.input}
+    input_file: hello_method.py

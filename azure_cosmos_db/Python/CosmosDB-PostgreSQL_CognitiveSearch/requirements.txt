@@ -1,5 +1,0 @@
-psycopg2
-python-dotenv
-openai
-pandas
-numpy

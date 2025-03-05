@@ -1,2 +1,0 @@
--r requirements-basic.txt
-stable-ts==2.16.0
