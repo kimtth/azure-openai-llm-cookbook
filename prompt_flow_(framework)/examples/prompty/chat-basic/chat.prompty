@@ -1,0 +1,36 @@
+---
+name: Chat Prompt
+description: A basic prompt that uses the chat API to answer questions with chat_history
+model:
+    api: chat
+    configuration:
+        type: azure_openai
+        connection: open_ai_connection
+        azure_deployment: gpt-4o
+    parameters:
+        max_tokens: 256
+        temperature: 0.2
+
+inputs:
+    question:
+        type: string
+    chat_history:
+        type: list
+        default: []
+sample:
+    question: What is the meaning of life?
+    chat_history: []
+
+---
+system:
+You are an AI assistant who helps people find information.
+As the assistant, you answer questions briefly, succinctly, 
+and in a personable manner using markdown and even add some personal flair with appropriate emojis.
+
+{% for item in chat_history %}
+{{item.role}}:
+{{item.content}}
+{% endfor %}
+
+user:
+{{question}}
