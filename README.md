@@ -5,13 +5,12 @@
 ## 📌 Quick Reference: Code Cookbook / Sample Code Collection
 
 > [!NOTE] 
-> To explore relevant demo codes across various repositories, you'll need to click through serveral pages and review them back and forth.
 > 
-> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations.
+> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations (`priortizing jupyter notebook and official examples`). 
 
 > [!IMPORTANT]  
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
-> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs. The focus is on collecting samples relevant to Azure OpenAI and OpenAI as much as possible.
+> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs. The focus is on collecting as many relevant samples as possible for Azure OpenAI. Some examples are adapted from other LLM cookbooks with modifications for Azure OpenAI. Examples without a URL are created specifically for this repository.
 
 ## 📖 Repository structure
 
@@ -26,11 +25,14 @@
 
 ## :file_folder: azure
 - azure_ai_foundry_sft_finetuning
+- azure_ai_foundry_workshop
 - azure_ai_search
 - azure_bot
 - azure_cosmos_db
+- azure_devops_(project_stauts_report)
 - azure_postgres_db
 - azure_sql_db
+- m365_agents_sdk
 - sharepoint_azure_function
 
 ## :file_folder: data
@@ -51,9 +53,11 @@
 - autogen_(framework)
 - code_editor_(vscode)
 - diagram_to_infra_template
+- dspy_(framework)
 - e2e_testing_agent
 - gui_automation
 - guidance_(framework)
+- haystack_(framework)
 - magentic-one_(agent)
 - mcp_(model_context_protocol)
 - memory_for_llm
@@ -61,6 +65,7 @@
 - omniparser_(gui)
 - prompt_flow_(framework)
 - semantic_kernel_(framework)
+- smolagent_(framework)
 - tiny_troupe_(framework)
 
 ## :file_folder: industry
@@ -79,9 +84,11 @@
 - project_management
 - stock_analysis
 - travel_planning_agent
+- youtube_summarize
 
-## :file_folder: multi_modal
+## :file_folder: multimodal
 - image_gen
+- phi-series-cookbook_(slm)
 - video_understanding
 - vision_rag
 - visualize_embedding
@@ -121,6 +128,9 @@
 - [Microsoft AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)  
 - [GenAI Agents by NirDiamant](https://github.com/NirDiamant/GenAI_Agents)  
 - [RAG Techniques by NirDiamant](https://github.com/NirDiamant/RAG_Techniques)
+- [Gemini API Cookbook](https://github.com/google-gemini/cookbook)
+- [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
+- 💡[How to switch between OpenAI and Azure OpenAI endpoints with Python](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/switching-endpoint)
 
 ## :computer: Microsoft Frameworks and Libraries
 

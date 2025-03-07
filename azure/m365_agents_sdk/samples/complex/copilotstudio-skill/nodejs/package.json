@@ -1,0 +1,23 @@
+{
+  "name": "node-echo-skill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm install",
+    "build": "tsc --build",
+    "prestart" : "npm run build",
+    "start": "node --env-file .env dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@microsoft/agents-bot-hosting": "0.1.20",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "express": "^5.0.1"
+  },
+  "devDependencies": {
+    "globals": "^15.14.0"
+  }
+}

@@ -1,0 +1,30 @@
+# Azure Authentication and Core Services
+azure-identity                         # Azure authentication and credentials management
+azure-ai-projects                      # Azure AI project management and orchestration
+azure-search-documents                 # Azure AI Search integration
+
+autogen-agentchat
+autogen-ext[azure]
+
+# Azure AI Services
+azure-ai-inference[opentelemetry]      # Azure AI inference with telemetry support
+azure-ai-evaluation                    # Azure AI model evaluation and testing
+azure-ai-contentsafety                 # Content moderation and safety services
+
+# Telemetry and Monitoring
+azure-monitor-opentelemetry           # Azure Monitor integration for OpenTelemetry
+azure-core-tracing-opentelemetry      # Core OpenTelemetry tracing for Azure
+opentelemetry-exporter-otlp           # OpenTelemetry protocol exporter
+
+# Jupyter Notebook Environment
+jupyter                               # Main Jupyter notebook package
+notebook                              # Core notebook functionality
+ipykernel                             # IPython kernel for Jupyter
+
+# Data Processing and Utilities
+pandas                                # Data manipulation and analysis
+tabulate                              # Pretty-print tabular data
+nbformat                              # Notebook format handling
+asyncio                               # Asynchronous I/O support
+typing                                # Type hinting support
+
