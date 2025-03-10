@@ -6,11 +6,11 @@
 
 > [!NOTE] 
 > 
-> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations (`priortizing jupyter notebook and official examples`). 
+> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations (`priortizing jupyter notebook and official examples`). The focus is on collecting as many relevant samples as possible for Azure OpenAI.
 
 > [!IMPORTANT]  
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
-> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs. The focus is on collecting as many relevant samples as possible for Azure OpenAI. Some examples are adapted from other LLM cookbooks with modifications for Azure OpenAI. Examples without a URL are created specifically for this repository.
+> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs.  Some examples are adapted from other LLM cookbooks with modifications for Azure OpenAI. Examples without a URL are created for this repository.
 
 ## 📖 Repository structure
 
@@ -30,15 +30,20 @@
 - azure_bot
 - azure_cosmos_db
 - azure_devops_(project_stauts_report)
+- azure_document_intelligence
+- azure_machine_learning
 - azure_postgres_db
 - azure_sql_db
+- copilot_studio
 - m365_agents_sdk
+- sentinel_openai
 - sharepoint_azure_function
 
 ## :file_folder: data
 - azure_oai_usage_stats_(power_bi)
 - chain-of-thought
 - fabric_cosmosdb_chat_analytics
+- firecrawl_(crawling)
 - presidio_(redaction)
 - prompt_buddy_(power_app)
 - sammo_(prompt_opt)
@@ -52,12 +57,15 @@
 ## :file_folder: framework_dev
 - autogen_(framework)
 - code_editor_(vscode)
+- crewai_(framework)
 - diagram_to_infra_template
 - dspy_(framework)
 - e2e_testing_agent
 - gui_automation
 - guidance_(framework)
 - haystack_(framework)
+- langchain_(framework)
+- llamaindex_(framework)
 - magentic-one_(agent)
 - mcp_(model_context_protocol)
 - memory_for_llm
