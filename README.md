@@ -6,11 +6,13 @@
 
 > [!NOTE] 
 > 
-> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied from various sources to showcase minimal implementations (`priortizing jupyter notebook and official examples`). The focus is on collecting as many relevant samples as possible for Azure OpenAI.
+> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied 🎡🧲 from various sources to showcase minimal implementations. (`priortizing jupyter notebook and official examples`). 
 
 > [!IMPORTANT]  
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
-> 🔹Disclaimer: This repository is created to collect sample code. Configuration for execution is not included, and it contains code that does not utilize LLMs.  Some examples are adapted from other LLM cookbooks with modifications for Azure OpenAI. Examples without a URL are created for this repository.
+> 🔹Disclaimer: Some examples are created for OpenAI-based APIs. Others are developed for this repository if no reference URL is mentioned. Additionally, some examples from other LLM cookbooks have been modified for Azure OpenAI.
+
+💡[How to switch between OpenAI and Azure OpenAI endpoints with Python](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/switching-endpoint)
 
 ## 📖 Repository structure
 
@@ -41,9 +43,11 @@
 
 ## :file_folder: data
 - azure_oai_usage_stats_(power_bi)
+- azure_ocr_scan_doc_to_table
 - chain-of-thought
 - fabric_cosmosdb_chat_analytics
 - firecrawl_(crawling)
+- ms_graph_api
 - presidio_(redaction)
 - prompt_buddy_(power_app)
 - sammo_(prompt_opt)
@@ -138,7 +142,7 @@
 - [RAG Techniques by NirDiamant](https://github.com/NirDiamant/RAG_Techniques)
 - [Gemini API Cookbook](https://github.com/google-gemini/cookbook)
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
-- 💡[How to switch between OpenAI and Azure OpenAI endpoints with Python](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/switching-endpoint)
+- [Awesome LLM Apps](https://github.com/Shubhamsaboo/awesome-llm-apps)
 
 ## :computer: Microsoft Frameworks and Libraries
 
