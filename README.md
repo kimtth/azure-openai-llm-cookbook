@@ -53,6 +53,7 @@
 - ms_graph_api
 - presidio_(redaction)
 - prompt_buddy_(power_app)
+- prompt_leaked
 - sammo_(prompt_opt)
 - semantic_chunking_(rag)
 
