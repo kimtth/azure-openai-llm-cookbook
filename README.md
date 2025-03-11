@@ -16,7 +16,7 @@
 
 ## 📖 Repository structure
 
-## :file_folder: agent
+## 📁 agent
 - agent_debates_with_tools
 - agent_multi-agent_pattern
 - agent_planning_pattern
@@ -28,7 +28,7 @@
 - role_playing
 - web_scrap_agent
 
-## :file_folder: azure
+## 📁 azure
 - azure_ai_foundry_sft_finetuning
 - azure_ai_foundry_workshop
 - azure_ai_search
@@ -44,7 +44,7 @@
 - sentinel_openai
 - sharepoint_azure_function
 
-## :file_folder: data
+## 📁 data
 - azure_oai_usage_stats_(power_bi)
 - azure_ocr_scan_doc_to_table
 - chain-of-thought
@@ -56,7 +56,7 @@
 - sammo_(prompt_opt)
 - semantic_chunking_(rag)
 
-## :file_folder: dev
+## 📁 dev
 - code_editor_(vscode)
 - diagram_to_infra_template
 - e2e_testing_agent
@@ -68,12 +68,12 @@
 - mini-copilot
 - mixture_of_agents
 
-## :file_folder: eval
+## 📁 eval
 - evaluation_llm_as_judge
 - guardrails
 - pyrit_(safety_eval)
 
-## :file_folder: framework
+## 📁 framework
 - agno_(framework)
 - autogen_(framework)
 - crewai_(framework)
@@ -91,7 +91,7 @@
 - smolagent_(framework)
 - tiny_troupe_(framework)
 
-## :file_folder: industry
+## 📁 industry
 - auto_insurance_claims
 - career_assistant_agent
 - contract_review
@@ -109,7 +109,7 @@
 - travel_planning_agent
 - youtube_summarize
 
-## :file_folder: multimodal
+## 📁 multimodal
 - image_gen
 - phi-series-cookbook_(slm)
 - video_understanding
@@ -117,14 +117,14 @@
 - visualize_embedding
 - voice_audio
 
-## :file_folder: nlp
+## 📁 nlp
 - multilingual_translation_(co-op-translator)
 - search_the_internet_and_summarize
 - sentiment_analysis_for_customer_feedback
 - translate_manga_into_english
 - txt2sql
 
-## :file_folder: rag
+## 📁 rag
 - adaptive-rag
 - agentic_rag
 - contextual_retrieval_(rag)
@@ -136,7 +136,7 @@
 - raptor_(rag)
 - self_rag
 
-## :file_folder: research
+## 📁 research
 - analysis_of_twitter_the-algorithm_source_code
 - deep_research
 - openai_code_interpreter
@@ -155,7 +155,7 @@
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
 - [Awesome LLM Apps](https://github.com/Shubhamsaboo/awesome-llm-apps)
 
-## :computer: Microsoft Frameworks and Libraries
+## 💻 Microsoft Frameworks and Libraries
 
 1. [Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/) (Feb 2023): An open-source SDK for integrating AI services like OpenAI, Azure OpenAI, and Hugging Face with conventional programming languages such as C# and Python. It's an LLM orchestrator, similar to LangChain. / [git](https://github.com/microsoft/semantic-kernel) ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/semantic-kernel?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
 1. [Azure ML Prompt Flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) (Jun 2023): A visual designer for prompt crafting using Jinja as a prompt template language. / [ref](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/harness-the-power-of-large-language-models-with-azure-machine/ba-p/3828459) / [git](https://github.com/microsoft/promptflow)
@@ -179,7 +179,7 @@
 1. [Presidio](https://github.com/microsoft/presidio): Presidio (Origin from Latin praesidium ‘protection, garrison’). Context aware, pluggable and customizable data protection and de-identification SDK for text and images. [Oct 2019]
 1. [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/): Fabric integrates technologies like Azure Data Factory, Azure Synapse Analytics, and Power BI into a single unified product [May 2023]
 
-## :arrow_right: Convert ipynb to Python
+## ➡️ Convert ipynb to Python
 
 - To convert a Jupyter notebook (.ipynb) into a runnable Python scrip
 

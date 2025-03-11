@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "translate_manga_into_english"
+version = "0.1.0"
+description = ""
+authors = ["kimtth"]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.14"
+openai = "^1.65.4"
+pillow = "^11.1.0"
+torch = "^2.6.0"
+ultralytics = "^8.3.87"
+transformers = "^4.49.0"
+jaconv = "^0.4.0"
+protobuf = "^6.30.0"
+fugashi = "^1.4.0"
+unidic-lite = "^1.0.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
