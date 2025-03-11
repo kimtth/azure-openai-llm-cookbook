@@ -6,7 +6,7 @@
 
 > [!NOTE] 
 > 
-> This repository's topic-based reclassification reduces the time spent reviewing code and contains demo code copied 🎡🧲 from various sources to showcase minimal implementations. (`priortizing jupyter notebook and official examples`). 
+> This repository is categorized by topic to reduce the time spent searching and reviewing sample code. It provides a collection of minimal implementations and a sample code library, including demo code that has been 🎡🧲 copied, created, or modified from various sources. (`priortizing jupyter notebook and official examples`). 
 
 > [!IMPORTANT]  
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
@@ -23,7 +23,10 @@
 - agent_react_pattern
 - agent_reflection_pattern
 - agent_tool_use_pattern
+- arxiv_agent
+- chess_agent
 - role_playing
+- web_scrap_agent
 
 ## :file_folder: azure
 - azure_ai_foundry_sft_finetuning
@@ -53,29 +56,37 @@
 - sammo_(prompt_opt)
 - semantic_chunking_(rag)
 
-## :file_folder: eval_safety
+## :file_folder: dev
+- code_editor_(vscode)
+- diagram_to_infra_template
+- e2e_testing_agent
+- gui_automation
+- llama_finetuning_with_lora
+- llm_router
+- mcp_(model_context_protocol)
+- memory_for_llm
+- mini-copilot
+- mixture_of_agents
+
+## :file_folder: eval
 - evaluation_llm_as_judge
 - guardrails
 - pyrit_(safety_eval)
 
-## :file_folder: framework_dev
+## :file_folder: framework
+- agno_(framework)
 - autogen_(framework)
-- code_editor_(vscode)
 - crewai_(framework)
-- diagram_to_infra_template
 - dspy_(framework)
-- e2e_testing_agent
-- gui_automation
 - guidance_(framework)
 - haystack_(framework)
 - langchain_(framework)
 - llamaindex_(framework)
 - magentic-one_(agent)
-- mcp_(model_context_protocol)
-- memory_for_llm
-- mini-copilot
+- mem0_(framework)
 - omniparser_(gui)
 - prompt_flow_(framework)
+- pydantic_ai_(framework)
 - semantic_kernel_(framework)
 - smolagent_(framework)
 - tiny_troupe_(framework)
@@ -125,7 +136,7 @@
 - raptor_(rag)
 - self_rag
 
-## :file_folder: research_analysis
+## :file_folder: research
 - analysis_of_twitter_the-algorithm_source_code
 - deep_research
 - openai_code_interpreter
@@ -146,8 +157,7 @@
 
 ## :computer: Microsoft Frameworks and Libraries
 
-1. [Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/) (Feb 2023): An open-source SDK for integrating AI services like OpenAI, Azure OpenAI, and Hugging Face with conventional programming languages such as C# and Python. It's an LLM orchestrator, similar to LangChain. / [git](https://github.com/microsoft/semantic-kernel) / [x-ref](sk_dspy.md/#semantic-kernel)
- ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/semantic-kernel?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
+1. [Semantic Kernel](https://devblogs.microsoft.com/semantic-kernel/) (Feb 2023): An open-source SDK for integrating AI services like OpenAI, Azure OpenAI, and Hugging Face with conventional programming languages such as C# and Python. It's an LLM orchestrator, similar to LangChain. / [git](https://github.com/microsoft/semantic-kernel) ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/semantic-kernel?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
 1. [Azure ML Prompt Flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow) (Jun 2023): A visual designer for prompt crafting using Jinja as a prompt template language. / [ref](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/harness-the-power-of-large-language-models-with-azure-machine/ba-p/3828459) / [git](https://github.com/microsoft/promptflow)
  ![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/promptflow?style=flat-square&label=%20&color=gray&cacheSeconds=36000)
 1. [SAMMO](https://github.com/microsoft/sammo) (Apr 2024): A general-purpose framework for prompt optimization. / [ref](https://www.microsoft.com/en-us/research/blog/sammo-a-general-purpose-framework-for-prompt-optimization/)
