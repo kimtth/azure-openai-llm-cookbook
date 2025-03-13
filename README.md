@@ -4,6 +4,8 @@
 
 ## 📌 Quick Reference: Code Cookbook / Sample Code Collection
 
+- If you find this repository useful, please consider giving it a star ⭐!
+
 > [!NOTE] 
 > 
 > This repository is categorized by topic to reduce the time spent searching and reviewing sample code. It provides a collection of minimal implementations and a sample code library, including demo code that has been 🧲copied, ✨created, or 🎡modified from various sources. (`priortizing jupyter notebook and official examples`). 
@@ -68,7 +70,6 @@
 - diagram_to_infra_template🐍✨
 - e2e_testing_agent📔
 - gui_automation🔗
-- llama_finetuning_with_lora📔
 - llm_router🐍✨🎡
 - mcp_(model_context_protocol)🐍✨
 - memory_for_llm🐍🔗
@@ -117,6 +118,13 @@
 - stock_analysis🐍✨🔗
 - travel_planning_agent
 - youtube_summarize🐍✨
+
+## 📁 llm
+- finetuning_grpo📔
+- knowledge_distillation📔
+- llama_finetuning_with_lora📔
+- nanoGPT🐍
+- nanoMoE🐍
 
 ## 📁 llmops
 - mlflow📔
