@@ -132,6 +132,7 @@
 
 ## 📁 multimodal
 - image_gen📔
+- openai-chat-vision📔
 - phi-series-cookbook_(slm)🔗
 - video_understanding📔
 - vision_rag📔
