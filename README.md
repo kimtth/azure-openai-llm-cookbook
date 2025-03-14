@@ -18,8 +18,9 @@
 
 ## 📜Legend
 
-- Python:🐍 Jupyter Notebook:📔 JavaScript/TypeScript:🟦 URL:🔗 Extra:🔴
-- Created:✨ Modified:🎡 Copied:🧲 (= when emoji is not following) 
+- Python:🐍 Jupyter Notebook:📔 JavaScript/TypeScript:🟦 URL:🔗 Extra:🔴 
+- Created:✨ Modified:🎡 Copied:🧲 (= when created or modified emojis are not following) 
+- Microsoft libraries or products:🪟
 
 ## 📖 Repository structure
 
@@ -36,42 +37,42 @@
 - web_scrap_agent🐍✨🎡
 
 ## 📁 azure
-- azure_ai_foundry_sft_finetuning📔
-- azure_ai_foundry_workshop📔
-- azure_ai_search📔
-- azure_bot📔
-- azure_cosmos_db📔
-- azure_devops_(project_stauts_report)🐍✨
-- azure_document_intelligence🐍
-- azure_evaluation_sdk🐍
-- azure_machine_learning📔
-- azure_postgres_db📔
-- azure_sql_db📔
-- copilot_studio🔗
-- m365_agents_sdk🟦
-- sentinel_openai🔗
-- sharepoint_azure_function📔
+- azure_ai_foundry_sft_finetuning📔🪟
+- azure_ai_foundry_workshop📔🪟
+- azure_ai_search📔🪟
+- azure_bot📔🪟
+- azure_cosmos_db📔🪟
+- azure_devops_(project_stauts_report)🐍✨🪟
+- azure_document_intelligence🐍🪟
+- azure_evaluation_sdk🐍🪟
+- azure_machine_learning📔🪟
+- azure_postgres_db📔🪟
+- azure_sql_db📔🪟
+- copilot_studio🔗🪟
+- m365_agents_sdk🟦🪟
+- sentinel_openai🔗🪟
+- sharepoint_azure_function📔🪟
 
 ## 📁 data
-- azure_oai_usage_stats_(power_bi)🔴
-- azure_ocr_scan_doc_to_table🐍✨
+- azure_oai_usage_stats_(power_bi)🔴🪟
+- azure_ocr_scan_doc_to_table🐍✨🪟
 - chain-of-thought🐍🔴
-- fabric_cosmosdb_chat_analytics📔🔴
+- fabric_cosmosdb_chat_analytics📔🔴🪟
 - firecrawl_(crawling)🐍
-- ms_graph_api📔
-- presidio_(redaction)📔
-- prompt_buddy_(power_app)🔴
+- ms_graph_api📔🪟
+- presidio_(redaction)📔🪟
+- prompt_buddy_(power_app)🔴🪟
 - prompt_leaked🔴
-- sammo_(prompt_opt)📔
+- sammo_(prompt_opt)📔🪟
 - semantic_chunking_(rag)📔
 
 ## 📁 dev
-- code_editor_(vscode)🐍✨🔗
-- diagram_to_infra_template🐍✨
+- code_editor_(vscode)🐍✨🔗🪟
+- diagram_to_infra_template_(bicep)🐍✨🪟
 - e2e_testing_agent📔
-- gui_automation🔗
+- gui_automation🔗🪟
 - llm_router🐍✨🎡
-- mcp_(model_context_protocol)🐍✨
+- mcp_(model_context_protocol)🐍✨🔗
 - memory_for_llm🐍🔗
 - mini-copilot🐍✨🔗
 - mixture_of_agents🐍✨🎡
@@ -80,26 +81,26 @@
 ## 📁 eval
 - evaluation_llm_as_judge📔
 - guardrails📔
-- pyrit_(safety_eval)📔
+- pyrit_(safety_eval)📔🪟
 
 ## 📁 framework
 - agno_(framework)🐍
-- autogen_(framework)🐍
+- autogen_(framework)🐍🪟
 - crewai_(framework)🐍
 - dspy_(framework)🐍📔
-- guidance_(framework)📔
+- guidance_(framework)📔🪟
 - haystack_(framework)🐍📔
 - langchain_(framework)📔
 - llamaindex_(framework)📔
-- magentic-one_(agent)🐍
+- magentic-one_(agent)🐍🪟
 - mem0_(framework)🐍📔
-- omniparser_(gui)📔
-- prompt_flow_(framework)📔
-- prompty_(framework)🔗🔴
+- omniparser_(gui)📔🪟
+- prompt_flow_(framework)📔🪟
+- prompty_(framework)🔗🔴🪟
 - pydantic_ai_(framework)🐍
-- semantic_kernel_(framework)🐍
+- semantic_kernel_(framework)🐍🪟
 - smolagent_(framework)🐍
-- tiny_troupe_(framework)📔
+- tiny_troupe_(framework)📔🪟
 
 ## 📁 industry
 - auto_insurance_claims📔
@@ -128,19 +129,19 @@
 
 ## 📁 llmops
 - mlflow📔
-- azure_prompt_flow🔗
+- azure_prompt_flow🔗🪟
 
 ## 📁 multimodal
 - image_gen📔
 - openai-chat-vision📔
-- phi-series-cookbook_(slm)🔗
+- phi-series-cookbook_(slm)🔗🪟
 - video_understanding📔
 - vision_rag📔
 - visualize_embedding📔
 - voice_audio🟦
 
 ## 📁 nlp
-- multilingual_translation_(co-op-translator)🐍
+- multilingual_translation_(co-op-translator)🐍🪟
 - search_the_internet_and_summarize📔
 - sentiment_analysis_for_customer_feedback📔
 - translate_manga_into_english🐍✨
@@ -152,7 +153,7 @@
 - contextual_retrieval_(rag)📔
 - corrective_rag📔
 - fusion_retrieval_reranking_(rag)📔
-- graphrag📔
+- graphrag📔🪟
 - hyde_(rag)📔
 - query_rewriting_(rag)📔
 - raptor_(rag)📔
@@ -161,8 +162,8 @@
 ## 📁 research
 - analysis_of_twitter_the-algorithm_source_code📔
 - deep_research🐍📔
-- openai_code_interpreter📔
-- r&d-agent🐍
+- openai_code_interpreter🐍📔
+- r&d-agent🐍(🪟RD-agent)
 
 ## 📚 References  
 
@@ -176,6 +177,7 @@
 - [Gemini API Cookbook](https://github.com/google-gemini/cookbook)
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
 - [Awesome LLM Apps](https://github.com/Shubhamsaboo/awesome-llm-apps)
+- [AI Engineering Hub](https://github.com/patchy631/ai-engineering-hub)
 
 ## 💻 Microsoft Frameworks and Libraries
 
