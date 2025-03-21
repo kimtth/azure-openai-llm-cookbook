@@ -18,70 +18,71 @@
 
 ## 📜Legend
 
-- Python:🐍 Jupyter Notebook:📔 JavaScript/TypeScript:🟦 URL:🔗 Extra:🔴 
-- Created:✨ Modified:🎡 Copied:🧲 (= when created or modified emojis are not following) 
+- Python:🐍 | Jupyter Notebook:📔 | JavaScript/TypeScript:🟦 | URL:🔗 | Extra:🔴 
+- Created:✨ | Modified:🎡 | Copied:🧲 (= when created or modified emojis are not following) 
 - Microsoft libraries or products:🪟
 
 ## 📖 Repository structure
 
 ## 📁 agent
 - agent_debates_with_tools📔
-- agent_multi-agent_pattern📔
-- agent_planning_pattern📔
+- agent_multi-agent_pattern📔🪟
+- agent_planning_pattern📔🪟
 - agent_react_pattern📔
 - agent_reflection_pattern📔
-- agent_tool_use_pattern📔
+- agent_tool_use_pattern📔🪟
 - arxiv_agent🐍✨🎡
 - chess_agent🐍
 - role_playing📔
 - web_scrap_agent🐍✨🎡
+- x-ref: 📁 industry
 
 ## 📁 azure
-- azure_ai_foundry_sft_finetuning📔🪟
+- azure_ai_foundry_sft_finetuning📔🪟: Supervised Fine-tuning
 - azure_ai_foundry_workshop📔🪟
-- azure_ai_search📔🪟
-- azure_bot📔🪟
-- azure_cosmos_db📔🪟
+- azure_ai_search📔🪟: Chuncking, Document Processing, Evaluation
+- azure_bot📔🪟: Bot service API
+- azure_cosmos_db📔🪟: Vector Database
 - azure_devops_(project_stauts_report)🐍✨🪟
 - azure_document_intelligence🐍🪟
 - azure_evaluation_sdk🐍🪟
 - azure_machine_learning📔🪟
-- azure_postgres_db📔🪟
-- azure_sql_db📔🪟
-- copilot_studio🔗🪟
-- m365_agents_sdk🟦🪟
-- sentinel_openai🔗🪟
-- sharepoint_azure_function📔🪟
+- azure_postgres_db📔🪟: pgvector for Vector Database
+- azure_sql_db📔🪟: Vector Database
+- copilot_studio🔗🪟: A low-code platform for bots and agents (formerly known as Power Virtual Agents)
+- m365_agents_sdk🟦🪟: Rebranding Azure Bot Framework
+- sentinel_openai🔗🪟: Sentinel: security information and event management (SIEM)
+- sharepoint_azure_function📔🪟: Sharepoint Integration with Azure Functions
 
 ## 📁 data
 - azure_oai_usage_stats_(power_bi)🔴🪟
-- azure_ocr_scan_doc_to_table🐍✨🪟
+- azure_ocr_scan_doc_to_table🐍✨🪟: Azure Document Intelligence demo to extract tables from document images and convert them to Excel.
 - chain-of-thought🐍🔴
-- fabric_cosmosdb_chat_analytics📔🔴🪟
+- fabric_cosmosdb_chat_analytics📔🔴🪟: Fabric: data processing, ingestion, transformation, and reporting on a single platform.
 - firecrawl_(crawling)🐍
 - ms_graph_api📔🪟
 - presidio_(redaction)📔🪟
-- prompt_buddy_(power_app)🔴🪟
+- prompt_buddy_(power_app)🔴🪟: Prompt sharing application built on Power App
 - prompt_leaked🔴
-- sammo_(prompt_opt)📔🪟
+- sammo_(prompt_opt)📔🪟: Symbolic Prompt Program Search: A Structure-Aware Approach to Efficient Compile-Time Prompt Optimization
 - semantic_chunking_(rag)📔
 
 ## 📁 dev
-- code_editor_(vscode)🐍✨🔗🪟
-- diagram_to_infra_template_(bicep)🐍✨🪟
-- e2e_testing_agent📔
-- gui_automation🔗🪟
+- code_editor_(vscode)🐍✨🔗🪟: Visual Code Extension Development
+- diagram_to_infra_template_(bicep)🐍✨🪟: Bicep: an Infrastructure as Code (IaC) language. 
+- e2e_testing_agent📔🪟: Playwright Testing Automation Framework
+- gui_automation🔗🪟: Omni parser: Screen parsing tool / Windows Agent Arena (WAA)
 - llm_router🐍✨🎡
 - mcp_(model_context_protocol)🐍✨🔗
 - memory_for_llm🐍🔗
-- mini-copilot🐍✨🔗
+- mini-copilot🐍✨🔗: DSL approach to calling the M365 API
 - mixture_of_agents🐍✨🎡
-- open_telemetry🐍✨
+- open_telemetry🐍✨: Open Telemetry: Tracing LLM requests and logging
 
 ## 📁 eval
 - evaluation_llm_as_judge📔
 - guardrails📔
-- pyrit_(safety_eval)📔🪟
+- pyrit_(safety_eval)📔🪟: Python Risk Identification Tool for generative AI 
 
 ## 📁 framework
 - agno_(framework)🐍
@@ -116,20 +117,20 @@
 - nyc_taxi_pickup_(ui)🐍
 - patient_case_summary📔
 - project_management📔
-- stock_analysis🐍✨🔗
+- stock_analysis🐍✨🔗: AutoGen demo for analyzing stock investments
 - travel_planning_agent
 - youtube_summarize🐍✨
 
 ## 📁 llm
-- finetuning_grpo📔
+- finetuning_grpo📔:  Group Relative Policy Optimization (GRPO)
 - knowledge_distillation📔
-- llama_finetuning_with_lora📔
+- llama_finetuning_with_lora📔: LoRA: Low-Rank Adaptation of Large Language Models
 - nanoGPT🐍
 - nanoMoE🐍
 
 ## 📁 llmops
-- mlflow📔
-- azure_prompt_flow🔗🪟
+- mlflow📔: OSS platform managing ML workflows
+- azure_prompt_flow🔗🪟: Prompt flow: E2E development tools for creating flows that link LLMs, prompts, Python code, and evaluation
 
 ## 📁 multimodal
 - image_gen📔
@@ -138,7 +139,7 @@
 - video_understanding📔
 - vision_rag📔
 - visualize_embedding📔
-- voice_audio🟦
+- voice_audio🟦: RTClient sample to use Realtime API
 
 ## 📁 nlp
 - multilingual_translation_(co-op-translator)🐍🪟
@@ -154,9 +155,9 @@
 - corrective_rag📔
 - fusion_retrieval_reranking_(rag)📔
 - graphrag📔🪟
-- hyde_(rag)📔
+- hyde_(rag)📔: Hypothetical Document Embeddings
 - query_rewriting_(rag)📔
-- raptor_(rag)📔
+- raptor_(rag)📔: Recursive Abstractive Processing for Tree-Organized Retrieval
 - self_rag📔
 
 ## 📁 research
