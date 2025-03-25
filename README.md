@@ -18,7 +18,7 @@
 
 ## 📜Legend
 
-- Python:🐍 | Jupyter Notebook:📔 | JavaScript/TypeScript:🟦 | URL:🔗 | Extra:🔴 
+- Python:🐍 | Jupyter Notebook:📔 | JavaScript/TypeScript:🟦 | See the details at the URL:🔗 | Extra:🔴 
 - Created:✨ | Modified:🎡 | Copied:🧲 (= when created or modified emojis are not following) 
 - Microsoft libraries or products:🪟
 
@@ -35,7 +35,7 @@
 - chess_agent🐍
 - role_playing📔
 - web_scrap_agent🐍✨🎡
-- x-ref: 📁 industry
+- x-ref: [📁industry](#-industry) 
 
 ## 📁 azure
 - azure_ai_foundry_sft_finetuning📔🪟: Supervised Fine-tuning
@@ -53,18 +53,19 @@
 - m365_agents_sdk🟦🪟: Rebranding Azure Bot Framework
 - sentinel_openai🔗🪟: Sentinel: security information and event management (SIEM)
 - sharepoint_azure_function📔🪟: Sharepoint Integration with Azure Functions
+- teams_ai_sdk🔗🪟
 
 ## 📁 data
 - azure_oai_usage_stats_(power_bi)🔴🪟
 - azure_ocr_scan_doc_to_table🐍✨🪟: Azure Document Intelligence demo to extract tables from document images and convert them to Excel.
 - chain-of-thought🐍🔴
-- fabric_cosmosdb_chat_analytics📔🔴🪟: Fabric: data processing, ingestion, transformation, and reporting on a single platform.
+- fabric_cosmosdb_chat_analytics📔🔴🪟: [Fabric](https://learn.microsoft.com/en-us/fabric/): data processing, ingestion, transformation, and reporting on a single platform.
 - firecrawl_(crawling)🐍
 - ms_graph_api📔🪟
 - presidio_(redaction)📔🪟
 - prompt_buddy_(power_app)🔴🪟: Prompt sharing application built on Power App
 - prompt_leaked🔴
-- sammo_(prompt_opt)📔🪟: Symbolic Prompt Program Search: A Structure-Aware Approach to Efficient Compile-Time Prompt Optimization
+- sammo_(prompt_opt)📔🪟: A Structure-Aware Approach to Efficient Compile-Time Prompt Optimization
 - semantic_chunking_(rag)📔
 
 ## 📁 dev
@@ -75,6 +76,7 @@
 - llm_router🐍✨🎡
 - mcp_(model_context_protocol)🐍✨🔗
 - memory_for_llm🐍🔗
+- memory_graphiti🐍
 - mini-copilot🐍✨🔗: DSL approach to calling the M365 API
 - mixture_of_agents🐍✨🎡
 - open_telemetry🐍✨: Open Telemetry: Tracing LLM requests and logging
@@ -102,6 +104,7 @@
 - semantic_kernel_(framework)🐍🪟
 - smolagent_(framework)🐍
 - tiny_troupe_(framework)📔🪟
+- x-ref: [📁microsoft-frameworks-and-libraries](#-microsoft-frameworks-and-libraries): 
 
 ## 📁 industry
 - auto_insurance_claims📔
@@ -130,10 +133,11 @@
 
 ## 📁 llmops
 - mlflow📔: OSS platform managing ML workflows
-- azure_prompt_flow🔗🪟: Prompt flow: E2E development tools for creating flows that link LLMs, prompts, Python code, and evaluation
+- azure_prompt_flow🔗🪟: Prompt flow: E2E development tools for creating LLM flows and evaluation
 
 ## 📁 multimodal
 - image_gen📔
+- openai-agents-sdk-voice-pipeline📔
 - openai-chat-vision📔
 - phi-series-cookbook_(slm)🔗🪟
 - video_understanding📔
