@@ -1,10 +1,10 @@
-# Azure OpenAI Samples
+# Azure OpenAI LLM Cookbook
 
 ![Static Badge](https://img.shields.io/badge/llm-azure_openai-blue?style=flat-square) ![GitHub Created At](https://img.shields.io/github/created-at/kimtth/azure-openai-samples?style=flat-square)
 
-## 📌 Quick Reference: Code Cookbook / Sample Code Collection
+## 📌 Quick Reference: Azure OpenAI LLM Code Cookbook & Sample Collection
 
-This repository is categorized by topic to reduce the time spent searching and reviewing sample code. It provides a collection of minimal implementations and a sample code library, including demo code that has been 🧲copied, ✨created, or 🎡modified from various sources.
+This repository is organized by topic to help reduce the time spent searching for and reviewing sample code. It offers a curated collection of minimal implementations and sample code from various sources.
 
 > [!IMPORTANT]
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
@@ -12,15 +12,17 @@ This repository is categorized by topic to reduce the time spent searching and r
 
 💡[How to switch between OpenAI and Azure OpenAI endpoints with Python](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/switching-endpoint)
 
-- Python:🐍 
-- Jupyter Notebook:📔
-- JavaScript/TypeScript:🟦
+- Programming Languages
+    - Python:🐍 
+    - Jupyter Notebook:📔
+    - JavaScript/TypeScript:🟦
+    - Extra:🔴 
+- Status & Action
+    - Created:✨ (A unique example found only in this repository)
+    - Modified:🎡 (An example that has been modified from a referenced source)
+    - Copied:🧲 (When created or modified emojis are not following) 
+    - See the details at the URL:🔗
 - Microsoft libraries or products:🪟
-- Created:✨
-- Modified:🎡
-- Copied:🧲 (= when created or modified emojis are not following) 
-- See the details at the URL:🔗
-- Extra:🔴 
 
 ⭐ If you find this repository useful, please consider giving it a star!
 
@@ -60,7 +62,7 @@ This repository is categorized by topic to reduce the time spent searching and r
 - azure_oai_usage_stats_(power_bi)🔴🪟: Azure OpenAI usage stats using Power BI
 - azure_ocr_scan_doc_to_table🐍✨🪟: Azure Document Intelligence – Extract tables from document images and convert them to Excel
 - chain-of-thought🐍🔴: Chain-of-thought reasoning prompt
-- fabric_cosmosdb_chat_analytics📔🔴🪟: [Fabric](https://learn.microsoft.com/en-us/fabric/): Data processing, ingestion, transformation, and reporting on a single platform
+- fabric_cosmosdb_chat_analytics📔🔴✨(visual)🪟: [Fabric](https://learn.microsoft.com/en-us/fabric/): Data processing, ingestion, transformation, and reporting on a single platform
 - firecrawl_(crawling)🐍: Firecrawl – Web crawling and scraping
 - ms_graph_api📔🪟: Microsoft Graph API
 - presidio_(redaction)📔🪟: Presidio – Data redaction and anonymization
@@ -73,11 +75,13 @@ This repository is categorized by topic to reduce the time spent searching and r
 - code_editor_(vscode)🐍✨🔗🪟: Visual Studio Code extension development
 - diagram_to_infra_template_(bicep)🐍✨🪟: Bicep – Infrastructure as Code (IaC) language
 - e2e_testing_agent📔🪟: End-to-end testing with Playwright automation framework
+- git_repo_with_chat🐍✨: Chat with Github repository
 - gui_automation🔗🪟: Omni Parser – Screen parsing tool / Windows Agent Arena (WAA)
 - llm_router🐍✨🎡: LLM request routing and orchestration
 - mcp_(model_context_protocol)🐍✨🔗: Model Context Protocol
+- mcp_to_openai_func_call🐍✨: MCP Tool Spec to OpenAI Function Call Converter
 - memory_for_llm🐍🔗: Memory management techniques for LLMs – [K-LaMP](https://arxiv.org/pdf/2311.06318.pdf)🪟
-- memory_graphiti🐍: Graph and neo4j based Memory 
+- memory_graphiti🐍✨: Graph and neo4j based Memory 
 - mini-copilot🐍✨🔗: DSL approach to calling the M365 API
 - mixture_of_agents🐍✨🎡: Multi-agent system for collecting responses from multiple LLMs
 - open_telemetry🐍✨: OpenTelemetry – Tracing LLM requests and logging
@@ -171,7 +175,7 @@ This repository is categorized by topic to reduce the time spent searching and r
 - openai_code_interpreter🐍📔: OpenAI’s code interpreter for data analysis
 - r&d-agent🐍🪟: Research and development AI agent
 
-## 📚 References
+## 📚 References & Sources
 
 - [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
 - [LangChain Cookbook](https://github.com/langchain-ai/langchain/tree/master/cookbook)
