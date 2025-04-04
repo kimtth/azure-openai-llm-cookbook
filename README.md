@@ -46,6 +46,7 @@ This repository is organized by topic to help reduce the time spent searching fo
 - azure_ai_search📔🪟: Chunking, Document Processing, Evaluation
 - azure_bot📔🪟: Bot Service API
 - azure_cosmos_db📔🪟: Cosmos DB as a Vector Database
+- azure_cosmos_db_enn🐍✨🪟: Cosmos DB Exact Nearest Neighbor (ENN) Vector Search for Precise Retrieval
 - azure_devops_(project_status_report)🐍✨🪟: Azure DevOps – Project Status Report
 - azure_document_intelligence🐍🪟: Azure Document Intelligence
 - azure_evaluation_sdk🐍🪟: Azure Evaluation SDK
