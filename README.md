@@ -93,23 +93,23 @@ This repository is organized by topic to help reduce the time spent searching fo
 - pyrit_(safety_eval)📔🪟: Python Risk Identification Tool
 
 ## 📁 framework
-- agno_(framework)🐍: Agno – AI framework for agent workflows
-- autogen_(framework)🐍🪟: AutoGen – Framework for automated AI workflows
-- crewai_(framework)🐍: CrewAI – Multi-agent collaboration framework
-- dspy_(framework)🐍📔: DSPy – Declarative Self-Improving AI framework
+- agno_(framework)🐍: Agno – A simple, intuitive agent framework
+- autogen_(framework)🐍🪟: AutoGen – A Framework for LLM Agent
+- crewai_(framework)🐍: CrewAI – Agent collaboration framework
+- dspy_(framework)🐍📔: DSPy – Declarative Language Model Calls into Self-Improving Pipelines
 - guidance_(framework)📔🪟: Guidance – Prompt programming framework
 - haystack_(framework)🐍📔: Haystack – NLP framework for RAG and search
 - langchain_(framework)📔: LangChain – Framework for LLM applications
-- llamaindex_(framework)📔: LlamaIndex – Data framework for LLM-powered retrieval
-- magentic-one_(agent)🐍🪟: Magentic-One – AI agent orchestration framework
-- mem0_(framework)🐍📔: Mem0 – Memory-driven AI framework
+- llamaindex_(framework)📔: LlamaIndex – Data framework for LLM retrieval/agent
+- magentic-one_(agent)🐍🪟: Magentic-One – Multi-agent system for solving open-ended web and file-based tasks
+- mem0_(framework)🐍📔: Mem0 – LLM Memory
 - omniparser_(gui)📔🪟: OmniParser – GUI automation and parsing tool
-- prompt_flow_(framework)📔🪟: Prompt Flow – Workflow automation for prompt engineering
-- prompty_(framework)🔗🔴🪟: Prompty – AI-driven prompt management framework
-- pydantic_ai_(framework)🐍: Pydantic AI – AI model validation and structuring
-- semantic_kernel_(framework)🐍🪟: Semantic Kernel – Microsoft’s AI orchestration framework
-- smolagent_(framework)🐍: SmolAgent – Lightweight AI agent framework
-- tiny_troupe_(framework)📔🪟: Tiny Troupe – Micro-agent collaboration framework
+- prompt_flow_(framework)📔🪟: Prompt Flow – LLM Workflow
+- prompty_(framework)🔗🔴🪟: Prompty – Prompt management
+- pydantic_ai_(framework)🐍: Pydantic AI – Pydantic agent framework
+- semantic_kernel_(framework)🐍🪟: Semantic Kernel – Microsoft LLM orchestration framework
+- smolagent_(framework)🐍: SmolAgent – Hugging Face Lightweight AI agent framework
+- tiny_troupe_(framework)📔🪟: Tiny Troupe – Multi agent persona simulation
 - x-ref: [📁microsoft-frameworks-and-libraries](#-microsoft-frameworks-and-libraries): 
 
 ## 📁 industry
