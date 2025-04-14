@@ -2,9 +2,9 @@
 
 ![Static Badge](https://img.shields.io/badge/llm-azure_openai-blue?style=flat-square) ![GitHub Created At](https://img.shields.io/github/created-at/kimtth/azure-openai-samples?style=flat-square)
 
-## 📌 Quick Reference: Azure OpenAI LLM Code Cookbook & Sample Collection
+## 📌 Quick Reference: Curated Sample Collection
 
-This repository is organized by topic to help reduce the time spent searching for and reviewing sample code. It offers a curated collection of minimal implementations and sample code from various sources.
+`A one-stop hub, like a sample library.` This repository is organized by topic to help reduce the time spent searching for and reviewing sample code. It offers a curated collection of minimal implementations and sample code from various sources.
 
 > [!IMPORTANT]
 > 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
@@ -29,6 +29,7 @@ This repository is organized by topic to help reduce the time spent searching fo
 ## 📖 Repository structure
 
 ## 📁 agent
+- a2a_server_client🐍: Agent2Agent (A2A) protocol
 - agent_multi-agent_pattern📔🪟: Agent multi-agent pattern
 - agent_planning_pattern📔🪟: Agent planning pattern
 - agent_react_pattern📔: Agent react pattern
@@ -36,6 +37,7 @@ This repository is organized by topic to help reduce the time spent searching fo
 - agent_tool_use_pattern📔🪟: Agent tool use pattern
 - arxiv_agent🐍✨🎡: ArXiv agent
 - chess_agent🐍: Chess agent
+- multi_agentic_system_simulator🐍✨🔗: A Multi-Agentic System Simulator. Visualize Agent interactions.
 - role_playing📔: Role-playing
 - web_scrap_agent🐍✨🎡: Web scraping agent
 - x-ref: [📁industry](#-industry) 
@@ -80,6 +82,7 @@ This repository is organized by topic to help reduce the time spent searching fo
 - gui_automation🔗🪟: Omni Parser – Screen parsing tool / Windows Agent Arena (WAA)
 - llm_router🐍✨🎡: LLM request routing and orchestration
 - mcp_(model_context_protocol)🐍✨🔗: Model Context Protocol
+- mcp_(sse)🐍✨🔗: Remote MCP (Model Context Protocol) calls  
 - mcp_to_openai_func_call🐍✨: MCP Tool Spec to OpenAI Function Call Converter
 - memory_for_llm🐍🔗: Memory management techniques for LLMs – [K-LaMP](https://arxiv.org/pdf/2311.06318.pdf)🪟
 - memory_graphiti🐍✨: Graph and neo4j based Memory 
