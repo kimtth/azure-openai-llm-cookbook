@@ -29,7 +29,8 @@
 ## 📖 Repository structure
 
 ## 📁 agent
-- a2a_server_client🐍: Agent2Agent (A2A) protocol
+- a2a_semantic_kernel🐍✨🔗🪟: Agent2Agent (A2A) Protocol Implementation with Semantic Kernel
+- a2a_server_client🐍: Agent2Agent (A2A) Protocol - official implementation of Server/Client
 - agent_multi-agent_pattern📔🪟: Agent multi-agent pattern
 - agent_planning_pattern📔🪟: Agent planning pattern
 - agent_react_pattern📔: Agent react pattern
