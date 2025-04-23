@@ -7,7 +7,7 @@
 `A one-stop hub, like a sample library.` This repository is organized by topic to help reduce the time spent searching for and reviewing sample code. It offers a curated collection of minimal implementations and sample code from various sources.
 
 > [!IMPORTANT]
-> 🔹For more details and the latest code updates, please refer to the original link provided in the `README.md` file within each directory.  
+> 🔹For more details and the latest code updates, please refer to the original link provided in the `README.app.md` file within each directory.  
 > 🔹Disclaimer: Some examples are created for OpenAI-based APIs. 
 
 💡[How to switch between OpenAI and Azure OpenAI endpoints with Python](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/switching-endpoint)
@@ -34,6 +34,7 @@
 - agent_multi-agent_pattern📔🪟: Agent multi-agent pattern
 - agent_planning_pattern📔🪟: Agent planning pattern
 - agent_react_pattern📔: Agent react pattern
+- agent_reflection_pattern📔: Agent reflection pattern with LangGraph
 - agent_reflection_pattern📔: Agent reflection pattern
 - agent_tool_use_pattern📔🪟: Agent tool use pattern
 - arxiv_agent🐍✨🎡: ArXiv agent
@@ -122,9 +123,9 @@
 - contract_review📔: Legal contract analysis and review
 - customer_support_agent📔: Customer support automation
 - damage_insurance_claims📔: Automated claims processing for damage insurance
-- invoice_+_sku_matching📔: Invoice and SKU reconciliation for accounting
+- invoice_sku_product_catalog_matching📔: Invoice and SKU reconciliation for accounting
 - invoice_payments📔: Automation for invoice payments
-- invoice_unit_standardization📔: Standardizing invoice units for consistency
+- invoice_standardization📔: Standardizing invoice units for consistency
 - music_compositor_agent📔: Music composition assistant
 - news_summarization_agent📔: Automated summarization of news articles
 - nyc_taxi_pickup_(ui)🐍: NYC taxi pickup analysis and UI visualization
@@ -142,12 +143,13 @@
 - nanoMoE🐍: Lightweight Mixture of Experts (MoE) implementation
 
 ## 📁 llmops
-- mlflow📔: OSS platform managing ML workflows
 - azure_prompt_flow🔗🪟: Azure AI Foundry - Prompt flow: E2E development tools for creating LLM flows and evaluation
+- mlflow📔: OSS platform managing ML workflows
 
 ## 📁 multimodal
 - image_gen📔: Image creation
-- openai-agents-sdk-voice-pipeline📔: OpenAI Agents SDK for voice processing
+- image_gen_dalle📔: Image creation with segmentaion
+- openai-agents-sdk-voice-pipeline📔✨: OpenAI Agents SDK for voice processing
 - openai-chat-vision📔: Multimodal chat with vision capabilities
 - phi-series-cookbook_(slm)🔗🪟: Phi series models cookbook (small language models)
 - video_understanding📔: Video content analysis and understanding
@@ -176,9 +178,54 @@
 
 ## 📁 research
 - analysis_of_twitter_the-algorithm_source_code📔: Analyzing [Twitter’s open-source ranking algorithm ](https://github.com/twitter/the-algorithm)
-- deep_research🐍📔: AI-driven deep research and analysis tools
+- deep_research_langchain🐍📔: AI-driven deep research and analysis tools using LangChain
+- deep_research_smolagents🐍📔: AI-driven deep research and analysis tools using smolagents
 - openai_code_interpreter🐍📔: OpenAI’s code interpreter for data analysis
 - r&d-agent🐍🪟: Research and development AI agent
+
+## 🛠️ Comparing Local with Remote Repository
+
+You can use the `git_cmp.py` script (and related files) to compare your local project directories with their corresponding remote GitHub repositories. 
+
+### Typical Workflow
+
+1. **Index all projects and their GitHub URLs:**
+    ```bash
+    python git_cmp.py --index --root <root_dir> --csv git_cmp_index.csv
+    ```
+    This creates a CSV file listing all projects and their remote URLs.
+
+2. **Compare local and remote repositories:**
+    ```bash
+    python git_cmp.py --compare --root <root_dir> --csv git_cmp_index.csv --report git_cmp_report.txt --update_csv git_cmp_needs_update.csv
+    ```
+    This generates a report and a CSV of projects needing updates. It also copies changed files into `.cache/` for review.
+
+3. **Update local files from cache (optional, use with care):**
+    ```bash
+    python git_cmp.py --manipulate --root <root_dir> --update_csv git_cmp_needs_update.csv
+    ```
+    This copies files from `.cache/` back into your project directories, optionally deleting files if flagged.
+
+### Options
+
+- `--delay_sec <seconds>`: Add a delay between GitHub API calls to avoid rate limits.
+- `--index`: Index projects and write a CSV.
+- `--compare`: Compare projects and write a report.
+- `--manipulate`: Update local files from the cache based on the update CSV.
+
+### Example
+
+```bash
+python git_cmp.py --index --root . --csv git_cmp_index.csv
+python git_cmp.py --compare --root . --csv git_cmp_index.csv --report git_cmp_report.txt --update_csv git_cmp_needs_update.csv
+python git_cmp.py --manipulate --root . --update_csv git_cmp_needs_update.csv
+```
+
+> **Note:**  
+> - Create `.env` file. Set the `GITHUB_TOKEN`. `e.g.,GITHUB_TOKEN=<your_key>`
+> - Review `.cache/` and the generated report before running `--manipulate`.
+> - See comments and docstrings in `git_cmp.py` for more details.
 
 ## 📚 References & Sources
 

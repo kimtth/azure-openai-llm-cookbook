@@ -1,1 +1,9 @@
 template.html
+*.7z
+.env
+*.log
+*.txt
+/.cache
+/.repo_cache
+git_cmp_needs_update.csv
+git_cmp_index_incremental.csv
