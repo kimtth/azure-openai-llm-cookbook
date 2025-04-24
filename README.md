@@ -215,22 +215,22 @@ You can use the `git_cmp.py` script (and related files) to compare your local pr
 
 ### Mode & Command
 
-**SUBDIR Mode**  
+- **SUBDIR Mode**  
 `target_remote_path` refers to a path in a remote repository that should be used as the starting point for comparison.  
 When the mode is set to `SUBDIR`, a directory with the same name as `project_name` is expected to exist under that path. The comparison should target all files and directories within that `SUBDIR`.  
 If there are files or directories that exist only in the remote (excluding `readme.app.md`, `.url`, and any folder—including its subdirectories—that contains a `DONOTCMP` file), they should all be copied into the `SUBDIR`.
 
-**FILE Mode**  
+- **FILE Mode**  
 When the mode is set to `FILE`, `target_remote_path` is not provided. A file with the same name is expected to exist at the specified GitHub URL. The comparison should target only that specific file, excluding `readme.app.md`, `.url`, and any folder—including its subdirectories—that contains a `DONOTCMP` file.
 
-**ROOT Mode**  
+- **ROOT Mode**  
 When the mode is set to `ROOT`, `target_remote_path` is also not provided. All files and directories under `project_name` (excluding `readme.app.md`, `.url`, and any folder—including its subdirectories—that contains a `DONOTCMP` file) should be compared with those in the specified GitHub URL.  Files or directories that exist only in the remote should be copied into the `project_name`.
 
-**Compare Command**  
+- **Compare Command**  
 In compare mode, for files and directories that exist only in the remote, zero-size placeholder files will be created locally.  
 Remote files and directories are treated as the source of truth. 
 
-**Manipulation Command**  
+- **Manipulation Command**  
 In manipulation mode, the remote repository for `project_name` should be updated. It is first cloned using the `git clone` command into the `.repo_cache` directory. After cloning, the actual file copying process to the local directories begins.  
 All local files and directories should be deleted first—excluding `readme.app.md`, `.url`, and any folder—including its subdirectories—that contains a `DONOTCMP` file—and then replaced with the corresponding remote versions. However, this local wipe will only be triggered when `allow_delete == 'DELETE'` to ensure safety.
 
