@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <!-- Add scripts that need to run before here -->
+  {{ super() }}
+  <!-- Add scripts that need to run afterwards here -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "gpxwnp6rhi");
+    </script>
+{% endblock %}
+
+<!-- Meta tags -->
+{% block site_meta %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Page description -->
+    {% if page.meta and page.meta.description %}
+        <meta name="description" content="{{ page.meta.description }}" />
+    {% elif config.site_description %}
+        <meta name="description" content="{{ config.site_description }}" />
+    {% endif %}
+
+    <!-- Page author -->
+    {% if page.meta and page.meta.author %}
+        <meta name="author" content="{{ page.meta.author }}" />
+    {% elif config.site_author %}
+        <meta name="author" content="{{ config.site_author }}" />
+    {% endif %}
+
+    <!-- Canonical -->
+    {% if page and page.meta and page.meta.canonical_url %}
+        <link rel="canonical" href="{{ page.meta.canonical_url }}">
+    {% elif page.canonical_url %}
+        <link rel="canonical" href="{{ page.canonical_url }}">
+    {% endif %}
+
+    <!-- Previous page -->
+    {% if page.previous_page %}
+        <link rel="prev" href="{{ page.previous_page.url | url }}" />
+    {% endif %}
+
+    <!-- Next page -->
+    {% if page.next_page %}
+        <link rel="next" href="{{ page.next_page.url | url }}" />
+    {% endif %}
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ config.theme.favicon | url }}" />
+
+    <!-- Generator banner -->
+    <meta
+            name="generator"
+            content="mkdocs-{{ mkdocs_version }}, $md-name$-$md-version$"
+    />
+{% endblock %}
+
+{% block extrahead %}
+    {% if page and page.meta and page.meta.canonical_url %}
+        <meta name="og:url" content="{{ page.meta.canonical_url }}" />
+    {% endif %}
+{% endblock %}

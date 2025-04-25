@@ -4,7 +4,7 @@
  */
 
 import * as msal from '@azure/msal-node'
-import { Activity, ActivityTypes, CardAction } from '@microsoft/agents-bot-activity'
+import { Activity, ActivityTypes, CardAction } from '@microsoft/agents-activity'
 import { ConnectionSettings, loadCopilotStudioConnectionSettingsFromEnv, CopilotStudioClient } from '@microsoft/agents-copilotstudio-client'
 import pkg from '@microsoft/agents-copilotstudio-client/package.json' with { type: 'json' }
 import readline from 'readline'
@@ -21,7 +21,7 @@ async function acquireToken (settings: ConnectionSettings): Promise<string> {
       authority: `https://login.microsoftonline.com/${settings.tenantId}`,
     },
     cache: {
-      cachePlugin: new MsalCachePlugin(path.join(os.tmpdir(), 'msal.usercache.json'))
+      cachePlugin: new MsalCachePlugin(path.join(os.tmpdir(), 'mcssample.tockencache.json'))
     },
     system: {
       loggerOptions: {

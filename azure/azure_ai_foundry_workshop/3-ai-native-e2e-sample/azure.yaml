@@ -1,0 +1,10 @@
+name: drug-discovery-sample
+services:
+  frontend:
+    project: ./frontend
+    language: js
+    host: staticwebapp
+  backend:
+    project: ./backend
+    language: python
+    host: containerapp

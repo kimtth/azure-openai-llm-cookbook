@@ -8,3 +8,4 @@ template.html
 git_cmp_needs_update.csv
 git_cmp_index_incremental.csv
 /__pycache__
+/.vscode

@@ -3,6 +3,7 @@ from enum import Enum
 from dataclasses import dataclass, fields
 from typing import Any, Optional, Dict 
 
+from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.runnables import RunnableConfig
 from dataclasses import dataclass
 
@@ -25,29 +26,32 @@ class SearchAPI(Enum):
     ARXIV = "arxiv"
     PUBMED = "pubmed"
     LINKUP = "linkup"
-
-class PlannerProvider(Enum):
-    ANTHROPIC = "anthropic"
-    OPENAI = "openai"
-    GROQ = "groq"
-
-class WriterProvider(Enum):
-    ANTHROPIC = "anthropic"
-    OPENAI = "openai"
-    GROQ = "groq"
+    DUCKDUCKGO = "duckduckgo"
+    GOOGLESEARCH = "googlesearch"
 
 @dataclass(kw_only=True)
 class Configuration:
     """The configurable fields for the chatbot."""
+    # Common configuration
     report_structure: str = DEFAULT_REPORT_STRUCTURE # Defaults to the default report structure
+    search_api: SearchAPI = SearchAPI.TAVILY # Default to TAVILY
+    search_api_config: Optional[Dict[str, Any]] = None
+    
+    # Graph-specific configuration
     number_of_queries: int = 2 # Number of search queries to generate per iteration
     max_search_depth: int = 2 # Maximum number of reflection + search iterations
-    planner_provider: PlannerProvider = PlannerProvider.ANTHROPIC  # Defaults to Anthropic as provider
+    planner_provider: str = "anthropic"  # Defaults to Anthropic as provider
     planner_model: str = "claude-3-7-sonnet-latest" # Defaults to claude-3-7-sonnet-latest
-    writer_provider: WriterProvider = WriterProvider.ANTHROPIC # Defaults to Anthropic as provider
+    planner_model_kwargs: Optional[Dict[str, Any]] = None # kwargs for planner_model
+    writer_provider: str = "anthropic" # Defaults to Anthropic as provider
     writer_model: str = "claude-3-5-sonnet-latest" # Defaults to claude-3-5-sonnet-latest
+    writer_model_kwargs: Optional[Dict[str, Any]] = None # kwargs for writer_model
     search_api: SearchAPI = SearchAPI.TAVILY # Default to TAVILY
     search_api_config: Optional[Dict[str, Any]] = None 
+    
+    # Multi-agent specific configuration
+    supervisor_model: str = "openai:gpt-4.1" # Model for supervisor agent in multi-agent setup
+    researcher_model: str = "openai:gpt-4.1" # Model for research agents in multi-agent setup 
 
     @classmethod
     def from_runnable_config(
