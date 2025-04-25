@@ -1,5 +1,6 @@
 template.html
 *.7z
+*.zip
 .env
 *.log
 *.txt

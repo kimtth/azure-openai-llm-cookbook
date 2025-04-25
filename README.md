@@ -153,7 +153,6 @@
 - mlflow📔: OSS platform managing ML workflows
 
 ## 📁 multimodal
-- image_gen📔: Image creation
 - image_gen_dalle📔: Image creation with segmentaion
 - openai-agents-sdk-voice-pipeline📔✨: OpenAI Agents SDK for voice processing
 - openai-chat-vision📔: Multimodal chat with vision capabilities
