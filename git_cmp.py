@@ -12,7 +12,7 @@ from git_cmp_helper import (
     normalize_target_remote_path,
     is_ignored,
     safe_join,
-    remote_is_skipped, 
+    remote_is_skipped,
     iter_categories,
     github_api_headers,
     get_github_repo_info,
@@ -20,19 +20,19 @@ from git_cmp_helper import (
     delete_non_doc_files,
     copy_cached_file,
     index_projects,
-    calc_git_blob_sha, 
+    calc_git_blob_sha,
     CACHE_DIR_NAME,
     REPO_CACHE_DIR_NAME,
     SIZE_DIFF_TOLERANCE,
     DELETE_VALUE,
-    GIT_LOG_FILE_NAME
+    GIT_LOG_FILE_NAME,
 )
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")  # Optional: for higher rate limits
 
 # --- logging to file --------------------------------------------------------
 logger.remove()
-logger.add(GIT_LOG_FILE_NAME, level="INFO", encoding="utf-8")
+logger.add(GIT_LOG_FILE_NAME, level="INFO", encoding="utf-8", mode="a")
 # ---------------------------------------------------------------------------
 
 # Remote-repo helpers
@@ -126,6 +126,10 @@ def _compare_project(
     target_path = row.get("target_remote_path", "").strip()
     kind = normalize_target_remote_path(target_path)
 
+    logger.info(
+        f"Processing - project: {project_name} | target_remote_path={target_path}"
+    )
+
     category_name = next(  # find category
         (
             cat.name
@@ -161,45 +165,6 @@ def _compare_project(
         local_files = [
             f for f in local_project.iterdir() if f.is_file() and not is_ignored(f)
         ]
-        # --- when no locals, placeholder all remotes & mark diff -----------
-        if not local_files:
-            logger.info(f"No files to compare for project: {project_name}")
-            # build remote listing
-            remote_root = list_all_files_in_repo(
-                owner, repo, delay_sec=delay_sec, return_relative=True
-            )
-            cache_proj = cache_dir / (category_name or "unknown") / project_name
-            cache_proj.mkdir(parents=True, exist_ok=True)
-            for rel_path in remote_root:
-                dest_path = safe_join(cache_proj, rel_path)
-                dest_path.parent.mkdir(parents=True, exist_ok=True)
-                with open(dest_path, "w", encoding="utf-8"):
-                    pass
-            if any(cache_proj.glob("**/*")):
-                _update_stats(
-                    stats,
-                    total_local=0,
-                    total_remote=len(remote_root),
-                    remote_only=len(remote_root),
-                    extra=(
-                        f"Local files: 0, Remote files: {len(remote_root)}, "
-                        f"Extra remote files: {len(remote_root)}"
-                    ),
-                )
-                return stats, True
-
-            _update_stats(
-                stats,
-                total_local=0,
-                total_remote=len(remote_root),
-                remote_only=len(remote_root),
-                extra=(
-                    f"Local files: 0, Remote files: {len(remote_root)}, "
-                    f"Extra remote files: {len(remote_root)}"
-                ),
-            )
-            return stats, False
-
         # --- compare locals vs remotes ------------------------------
         remote_root = list_all_files_in_repo(
             owner,
@@ -223,15 +188,14 @@ def _compare_project(
                 continue
 
             local_size = local_file.stat().st_size
-            rel_path_str = find_partial_match_key(remote_root, rel_path_str) or rel_path_str
+            rel_path_str = (
+                find_partial_match_key(remote_root, rel_path_str) or rel_path_str
+            )
             remote_meta = remote_root[rel_path_str]
             remote_size = remote_meta.get("size", 0)
             remote_sha = remote_meta.get("sha")
             compared_files += 1
-            sha_mismatch = (
-                remote_sha
-                and calc_git_blob_sha(local_file) != remote_sha
-            )
+            sha_mismatch = remote_sha and calc_git_blob_sha(local_file) != remote_sha
             if abs(local_size - remote_size) > SIZE_DIFF_TOLERANCE or sha_mismatch:
                 logger.info(
                     f"File differs: {rel_path_str} "
@@ -243,8 +207,7 @@ def _compare_project(
                 changed_set.add(rel_path_str)
 
         local_file_names = {
-            str(f.relative_to(local_project)).replace("\\", "/")
-            for f in local_files
+            str(f.relative_to(local_project)).replace("\\", "/") for f in local_files
         }
         remote_file_names = set(remote_root.keys())
         extra_remote = remote_file_names - local_file_names
@@ -273,16 +236,11 @@ def _compare_project(
                 dest_path.parent.mkdir(parents=True, exist_ok=True)
                 with open(dest_path, "w", encoding="utf-8"):
                     pass
-            # placeholders for remote-only files
-            for rel in extra_remote:
-                dest_path = safe_join(cache_proj, rel)
-                dest_path.parent.mkdir(parents=True, exist_ok=True)
-                with open(dest_path, "w", encoding="utf-8"):
-                    pass
             if any(cache_proj.glob("**/*")):
                 return stats, True
             else:
                 logger.warning(f"Cache not created for {project_name}")
+                return stats, False
 
     elif kind is TargetRemote.ROOT:
         # --- MODE: compare full project tree against repo root ----------- #
@@ -331,7 +289,8 @@ def _compare_project(
 
         # --- use relative-path map instead of filename map ---
         remote_root = {
-            k: v for k, v in list_all_files_in_repo(
+            k: v
+            for k, v in list_all_files_in_repo(
                 owner, repo, delay_sec=delay_sec, return_relative=True
             ).items()
             if not remote_is_skipped(local_project, k)
@@ -339,13 +298,13 @@ def _compare_project(
         # ------------------------------------------------------
         stats["total_remote_files"] = len(remote_root)
         changed_files = compared_files = local_only = 0
-        changed_set = set()            # RENAMED
+        changed_set = set()
         for local_file in local_files:
             rel_path = local_file.relative_to(local_project)
             rel_path_str = str(rel_path).replace("\\", "/")
 
             # use full relative path for look-up
-            if rel_path_str not in remote_root:
+            if not any(rel_path_str in key for key in remote_root):
                 logger.info(f"File missing remotely: {rel_path_str}")
                 file_diff = True
                 changed_files += 1
@@ -357,10 +316,7 @@ def _compare_project(
             remote_size = remote_meta.get("size", 0)
             remote_sha = remote_meta.get("sha")
             compared_files += 1
-            sha_mismatch = (
-                remote_sha
-                and calc_git_blob_sha(local_file) != remote_sha
-            )
+            sha_mismatch = remote_sha and calc_git_blob_sha(local_file) != remote_sha
             if abs(local_size - remote_size) > SIZE_DIFF_TOLERANCE or sha_mismatch:
                 logger.info(
                     f"File differs: {rel_path_str} "
@@ -376,7 +332,8 @@ def _compare_project(
         )
         remote_file_names = set(remote_root.keys())
         extra_remote_files = {
-            p for p in (remote_file_names - local_file_names)
+            p
+            for p in (remote_file_names - local_file_names)
             if not remote_is_skipped(local_project, p)
         }
 
@@ -397,15 +354,16 @@ def _compare_project(
         )
 
         if extra_remote_files:
-            logger.info(f"Extra files in remote: {extra_remote_files}")
+            logger.info(f"Extra files in remote: {len(extra_remote_files)}")
             file_diff = True
+
         if file_diff:
             # --- use category in cache path ---
             cache_proj = cache_dir / (category_name or "unknown") / project_name
             cache_proj.mkdir(parents=True, exist_ok=True)
             # placeholders for files that differ
             for rel in changed_set:
-                dest_path = safe_join(cache_proj, rel)     # ← use helper
+                dest_path = safe_join(cache_proj, rel)  # ← use helper
                 dest_path.parent.mkdir(parents=True, exist_ok=True)
                 with open(dest_path, "w", encoding="utf-8"):
                     pass
@@ -428,49 +386,48 @@ def _compare_project(
     else:  # TargetRemote.SUBDIR
         # --- MODE: compare a specific subdirectory ----------------------- #
         # Remote path to inspect: <target_remote_path>
-        remote_sub_path = target_path.strip("/") 
-        local_dir = local_project / remote_sub_path 
+        remote_sub_path = target_path.strip("/")
+        local_dir = local_project / remote_sub_path
         # Always check for remote-only files even if local_dir is empty/absent
         local_files = [
-            f for f in local_dir.glob("**/*")
-            if f.is_file() and not is_ignored(f)
+            f for f in local_dir.glob("**/*") if f.is_file() and not is_ignored(f)
         ]
         stats["total_local_files"] = len(local_files)
 
-        remote_dir = {
-            k: v for k, v in list_all_files_in_repo(
-                owner, repo, remote_sub_path, delay_sec=delay_sec,
-                return_relative=True
+        remote_file_directory = {
+            k: v
+            for k, v in list_all_files_in_repo(
+                owner, repo, remote_sub_path, delay_sec=delay_sec, return_relative=True
             ).items()
             if not remote_is_skipped(local_dir, k)
         }
         # Always check for remote-only files even if local_dir is empty/absent
-        stats["total_remote_files"] = len(remote_dir)
+        stats["total_remote_files"] = len(remote_file_directory)
 
         changed_files = compared_files = local_only = 0
-        remote_only_set = set(remote_dir.keys())
-        changed_set = set()            # RENAMED
+        remote_only_set = set(remote_file_directory.keys())
+        changed_set = set()
 
         # Compare local files to remote
         for local_file in local_files:
             rel_path = local_file.relative_to(local_dir)
             rel_path_str = str(rel_path).replace("\\", "/")
-            if not any(rel_path_str in key for key in remote_dir):
+            if not any(rel_path_str in key for key in remote_file_directory):
                 logger.info(f"File missing remotely: {remote_sub_path}/{rel_path_str}")
                 file_diff = True
                 changed_files += 1
                 local_only += 1
                 continue
             local_size = local_file.stat().st_size
-            rel_path_str = find_partial_match_key(remote_dir, rel_path_str) or rel_path_str
-            remote_meta = remote_dir[rel_path_str]
+            rel_path_str = (
+                find_partial_match_key(remote_file_directory, rel_path_str)
+                or rel_path_str
+            )
+            remote_meta = remote_file_directory[rel_path_str]
             remote_size = remote_meta.get("size", 0)
             remote_sha = remote_meta.get("sha")
             compared_files += 1
-            sha_mismatch = (
-                remote_sha
-                and calc_git_blob_sha(local_file) != remote_sha
-            )
+            sha_mismatch = remote_sha and calc_git_blob_sha(local_file) != remote_sha
             if abs(local_size - remote_size) > SIZE_DIFF_TOLERANCE or sha_mismatch:
                 logger.info(
                     f"File differs: {remote_sub_path}/{rel_path_str} "
@@ -486,7 +443,7 @@ def _compare_project(
 
         # If there are remote-only files, mark as needing update
         if remote_only_set:
-            logger.info(f"Extra files in remote: {remote_only_set}")
+            logger.info(f"Extra files in remote: {len(remote_only_set)}")
             file_diff = True
 
         # logging
@@ -497,21 +454,26 @@ def _compare_project(
             local_only=local_only,
             remote_only=len(remote_only_set),
             total_local=len(local_files),
-            total_remote=len(remote_dir),
+            total_remote=len(remote_file_directory),
             extra=(
                 f"Local files: {len(local_files)}, "
-                f"Remote files: {len(remote_dir)}, "
+                f"Remote files: {len(remote_file_directory)}, "
                 f"Extra remote files: {len(remote_only_set)}"
             ),
         )
 
         if file_diff:
             # --- use category in cache path ---
-            cache_proj = cache_dir / (category_name or "unknown") / project_name
+            cache_proj = (
+                cache_dir
+                / (category_name or "unknown")
+                / project_name
+                / remote_sub_path
+            )
             cache_proj.mkdir(parents=True, exist_ok=True)
             # placeholders for files that differ
             for rel in changed_set:
-                dest_path = safe_join(cache_proj, rel)     # ← use helper
+                dest_path = safe_join(cache_proj, rel)  # ← use helper
                 dest_path.parent.mkdir(parents=True, exist_ok=True)
                 with open(dest_path, "w", encoding="utf-8"):
                     pass
@@ -525,6 +487,9 @@ def _compare_project(
                 return stats, True
             logger.warning(f"Cache not created for {project_name}")
 
+    logger.info(
+        f"Processing completed - project: {project_name} | target_remote_path={target_path}"
+    )
     # Hand back the summary for this project
     return stats, file_diff
 
@@ -696,13 +661,9 @@ def manipulate_local_files(update_csv_path, root_dir):
         for row in reader:
             project_name = row["project_name"]
             github_url = row["github_url"]
-            target_remote = row.get("target_remote_path", "").strip()
+            # target_remote = row.get("target_remote_path", "").strip()
             # build full remote path when SUBDIR is used
-            kind = normalize_target_remote_path(target_remote)
-            if kind is TargetRemote.SUBDIR:
-                effective_target_remote = f"{target_remote.rstrip('/')}/{project_name}"
-            else:
-                effective_target_remote = target_remote
+            # kind = normalize_target_remote_path(target_remote)
             allow_delete_flag = row.get("allow_delete", "").strip().upper()
 
             owner, repo = get_github_repo_info(github_url)
@@ -726,7 +687,8 @@ def manipulate_local_files(update_csv_path, root_dir):
             if repo_key not in repo_clone_cache:
                 local_repo = repo_cache_dir / f"{owner}__{repo}__{branch}"
                 if not local_repo.exists():
-                    subprocess.run(
+                    # Clone with --no-checkout to avoid checkout errors on Windows
+                    result = subprocess.run(
                         [
                             "git",
                             "clone",
@@ -734,6 +696,7 @@ def manipulate_local_files(update_csv_path, root_dir):
                             "1",
                             "--branch",
                             branch,
+                            "--no-checkout",
                             f"https://github.com/{owner}/{repo}.git",
                             str(local_repo),
                         ],
@@ -741,8 +704,30 @@ def manipulate_local_files(update_csv_path, root_dir):
                         stderr=subprocess.PIPE,
                         check=False,
                     )
+                    if result.returncode == 0:
+                        # Try to checkout, but ignore errors due to invalid paths
+                        checkout_result = subprocess.run(
+                            ["git", "checkout", branch],
+                            cwd=str(local_repo),
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            check=False,
+                        )
+                        if checkout_result.returncode != 0:
+                            logger.warning(
+                                f"Checkout failed for {owner}/{repo} (branch: {branch}): "
+                                f"{checkout_result.stderr.decode()}"
+                            )
+
+                    if result.returncode != 0:
+                        logger.error(
+                            f"Error cloning repo {owner}/{repo} (branch: {branch}) "
+                            f"Error: {result.stderr.decode()}"
+                        )
+                        continue
+
                 repo_clone_cache[repo_key] = local_repo if local_repo.exists() else None
-            local_repo_path = repo_clone_cache[repo_key]
+            repo_cache_proj = repo_clone_cache[repo_key]
             # ----------------------------------------------------------------
 
             # locate category and local project folder
@@ -780,13 +765,11 @@ def manipulate_local_files(update_csv_path, root_dir):
                     # detect zero-byte placeholders and try to replace them
                     # with the real remote content before copying.
                     copy_cached_file(
-                        src, cache_proj, project_path,
-                        effective_target_remote,      # ← use full remote path
-                        local_repo_path
+                        src,
+                        cache_proj,
+                        project_path,
+                        repo_cache_proj
                     )
-
-
-
 
 
 if __name__ == "__main__":
@@ -831,9 +814,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # args.index = True
-    args.compare = True
+    # args.compare = True
+    args.manipulate = True
     # args.delete_cache = True
-    args.csv = "git_cmp_index_incremental.csv"
+    # args.csv = "git_cmp_index_incremental.csv"
 
     if args.index:
         index_projects(args.root, args.csv)

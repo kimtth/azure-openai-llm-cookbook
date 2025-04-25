@@ -162,6 +162,7 @@ def list_all_files_in_repo(
             rel_key = str(Path(full_path).relative_to(sub_path)) if sub_path and Path(full_path).is_relative_to(sub_path) else full_path
         else:
             rel_key = Path(full_path).name
+        rel_key = str(rel_key).replace("\\", "/")
         result[rel_key] = meta
     return result
 
@@ -254,38 +255,33 @@ def delete_non_doc_files(dir_path: Path):
                 pass
 
 
-def _repo_file_path(rel_path: str, target_remote_path: str) -> str:
-    if target_remote_path.lower() in {"", "root", "file"}:
-        p = rel_path
-    else:
-        trp = target_remote_path.rstrip("/")
-        p = rel_path if rel_path.startswith(f"{trp}/") else f"{trp}/{rel_path}"
-    parts = p.lstrip("/").split("/")
-    return (
-        "/".join(parts[1:])
-        if len(parts) > 1 and parts[0] == parts[1]
-        else p.lstrip("/")
-    )
-
-
 def copy_cached_file(
-    src_file: Path,
+    src_file: Path, # src_file is a placeholder
     cache_root: Path,
-    dest_project: Path,
-    target_remote_path: str,
-    local_repo_path: Path | None,
+    project_path: Path,
+    repo_cache_proj: Path | None,
 ):
     rel_path = src_file.relative_to(cache_root)
-    dest_path = dest_project / rel_path
+    dest_path = project_path / rel_path
     dest_path.parent.mkdir(parents=True, exist_ok=True)
 
     if src_file.stat().st_size == 0:
-        repo_rel = _repo_file_path(str(rel_path).replace("\\", "/"), target_remote_path)
-        if local_repo_path and (local_repo_path / repo_rel).is_file():
-            copy2(local_repo_path / repo_rel, dest_path)
-            logger.info(f"Filled placeholder {dest_path} from local clone")
-            return
-    copy2(src_file, dest_path)
+        if repo_cache_proj is not None:
+            candidates = []
+            rel_str = str(rel_path).replace("\\", "/")
+            candidates.append(repo_cache_proj / rel_str)
+            
+            for candidate in candidates:
+                if candidate.exists() and candidate.is_file():
+                    copy2(candidate, dest_path)
+                    logger.info(f"Copied real file from repo cache: {candidate} -> {dest_path}")
+                    break
+        # else:
+        #     dest_path.write_bytes(b"")
+        #     logger.info(f"Zero-byte placeholder left for {dest_path}")
+    else:
+        copy2(src_file, dest_path)
+        logger.info(f"Copied {src_file} -> {dest_path}")
     logger.info(f"Copied {dest_path}")
 
 
