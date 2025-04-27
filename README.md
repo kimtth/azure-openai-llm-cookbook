@@ -34,14 +34,14 @@
 - [agent_multi-agent_pattern](./agent/agent_multi-agent_pattern)📔🪟: Agent multi-agent pattern
 - [agent_planning_pattern](./agent/agent_planning_pattern)📔🪟: Agent planning pattern
 - [agent_react_pattern](./agent/agent_react_pattern)📔: Agent react pattern
-- [agent_reflection_pattern_langgraph](./agent/agent_reflection_pattern_langgraph)📔: Agent reflection pattern with LangGraph
-- [agent_reflection_pattern](./agent/agent_reflection_pattern)📔: Agent reflection pattern
+- [agent_reflection_pattern](./agent/agent_reflection_pattern)📔: Agent reflection pattern with LangGraph
+- [agent_reflection_pattern2](./agent/agent_reflection_pattern2)📔: Agent reflection pattern (Groq as the LLM provider)
 - [agent_tool_use_pattern](./agent/agent_tool_use_pattern)📔🪟: Agent tool use pattern
 - [arxiv_agent](./agent/arxiv_agent)🐍✨🎡: ArXiv agent
 - [chess_agent](./agent/chess_agent)🐍: Chess agent
 - [multi_agentic_system_simulator](./agent/multi_agentic_system_simulator)🐍✨🔗: A Multi-Agentic System Simulator. Visualize Agent interactions.
 - [role_playing](./agent/role_playing)📔: Role-playing
-- [web_scrap_agent](./agent/web_scrap_agent)🐍✨🎡: Web scraping agent
+- [web_scrap_agent](./agent/web_scrap_agent)🐍✨🎡🪟(Bing Search API): Web scraping agent 
 - x-ref: [📁industry](#-industry) 
 
 ## 📁 azure
