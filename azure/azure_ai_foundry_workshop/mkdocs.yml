@@ -1,0 +1,146 @@
+site_name: Azure AI Foundry Workshop
+site_description: A practical 4-5 hour workshop on building intelligent health and dietary advice agents with Azure AI Foundry
+site_url: https://workshop.aifoundry.app
+site_author: Azure App Innovation GBB, Microsoft
+
+theme:
+  name: material
+  custom_dir: docs/assets/overrides
+  font:
+    text: Inter
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: teal
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: teal
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+  features:
+    - header.autohide
+    - navigation.instant
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - navigation.footer
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: workshop/README.md
+  - Architecture: workshop/architecture.md
+  - Prerequisites: README.md
+  - Notebooks:
+    - Introduction:
+      - Authentication: 1-introduction/1-authentication.ipynb
+      - Environment Setup: 1-introduction/2-environment_setup.ipynb
+      - Quick Start: 1-introduction/3-quick_start.ipynb
+    - Chat Completion & RAG:
+      - Basic Chat: 2-notebooks/1-chat_completion/1-basic-chat-completion.ipynb
+      - Embeddings: 2-notebooks/1-chat_completion/2-embeddings.ipynb
+      - Basic RAG: 2-notebooks/1-chat_completion/3-basic-rag.ipynb
+      - Phi-4: 2-notebooks/1-chat_completion/4-phi-4.ipynb
+    - Agent Development:
+      - Basics: 2-notebooks/2-agent_service/1-basics.ipynb
+      - Code Interpreter: 2-notebooks/2-agent_service/2-code_interpreter.ipynb
+      - File Search: 2-notebooks/2-agent_service/3-file-search.ipynb
+      - Bing Grounding: 2-notebooks/2-agent_service/4-bing_grounding.ipynb
+      - AI Search: 2-notebooks/2-agent_service/5-agents-aisearch.ipynb
+      - Azure Functions: 2-notebooks/2-agent_service/6-agents-az-functions.ipynb
+    - Quality Attributes:
+      - Observability: 2-notebooks/3-quality_attributes/1-Observability.ipynb
+      - Evaluation: 2-notebooks/3-quality_attributes/2-evaluation.ipynb
+  - E2E Sample:
+    - Backend: 3-ai-native-e2e-sample/backend/README.md
+    - Frontend: 3-ai-native-e2e-sample/frontend/README.md
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - pymdownx.keys
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.snippets:
+      base_path: "."
+      check_paths: true
+      url_download: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - meta
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - glightbox
+  - open-in-new-tab
+  - mkdocs-video
+  - minify:
+      minify_html: true
+  - mkdocs-jupyter:
+      include_source: true
+      execute: false
+      ignore_h1_titles: true
+      allow_errors: false
+      kernel_name: python3
+  - git-revision-date-localized
+  - git-revision-date
+  - git-committers:
+      repository: Azure/ai-foundry-workshop
+      branch: main
+  - macros
+  - table-reader
+
+extra:
+  analytics:
+    provider: google
+    property: G-W6SKQMVB9X
+  generator: false
+  feedback:
+    title: Was this page helpful?
+    ratings:
+      - icon: material/emoticon-happy-outline
+        name: This page was helpful
+        data: 1
+        note: >-
+          Thanks for your feedback! - Azure App Innovation GBB
+      - icon: material/emoticon-sad-outline
+        name: This page could be improved
+        data: 0
+        note: >-
+          Thanks for your feedback! Help us improve this page by
+          using our feedback form.
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+
+docs_dir: docs
+site_dir: site

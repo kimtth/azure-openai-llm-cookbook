@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant User
+    participant Agent
+    participant Search as AI Search
+    participant Code as Code Interpreter
+    participant Bing as Bing Search
+    
+    User->>Agent: Query with data analysis
+    
+    par Search Knowledge Base
+        Agent->>Search: Vector search request
+        Search-->>Agent: Relevant documents
+    and Execute Analysis
+        Agent->>Code: Process data
+        Code-->>Agent: Analysis results
+    and Ground Information
+        Agent->>Bing: Verify claims
+        Bing-->>Agent: Current data
+    end
+    
+    Agent->>User: Comprehensive response

@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning>=0.7.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+bump = true
+
+[project]
+name = "pydantic-ai-examples"
+dynamic = ["version", "dependencies"]
+description = "Examples of how to use PydanticAI and what it can do."
+authors = [{ name = "Samuel Colvin", email = "samuel@pydantic.dev" }]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: Console",
+    "Environment :: MacOS X",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet",
+]
+requires-python = ">=3.9"
+
+[tool.hatch.metadata.hooks.uv-dynamic-versioning]
+dependencies = [
+    "pydantic-ai-slim[openai,vertexai,groq,anthropic]=={{ version }}",
+    "pydantic-evals=={{ version }}",
+    "asyncpg>=0.30.0",
+    "fastapi>=0.115.4",
+    "logfire[asyncpg,fastapi,sqlite3]>=2.6",
+    "python-multipart>=0.0.17",
+    "rich>=13.9.2",
+    "uvicorn>=0.32.0",
+    "devtools>=0.12.2",
+    "gradio>=5.9.0; python_version>'3.9'",
+    "mcp[cli]>=1.4.1; python_version >= '3.10'"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["pydantic_ai_examples"]
+
+[tool.uv.sources]
+pydantic-ai-slim = { workspace = true }
+
+[tool.ruff]
+extend = "../pyproject.toml"
+line-length = 88

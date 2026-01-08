@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant User
+    participant Agent
+    participant FileSearch as File Search Tool
+    participant CodeInterp as Code Interpreter
+    participant Bing as Bing Search
+    
+    User->>Agent: Health analysis request
+    alt Search Documents
+        Agent->>FileSearch: Search health records
+        FileSearch-->>Agent: Return relevant docs
+    else Calculate Metrics
+        Agent->>CodeInterp: Process health data
+        CodeInterp-->>Agent: Return calculations
+    else Ground Information
+        Agent->>Bing: Verify health claims
+        Bing-->>Agent: Return current data
+    end
+    Agent->>User: Provide comprehensive response

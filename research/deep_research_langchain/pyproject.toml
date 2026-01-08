@@ -1,0 +1,74 @@
+[project]
+name = "open_deep_research"
+version = "0.0.15"
+description = "Planning, research, and report generation."
+authors = [
+    { name = "Lance Martin" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=0.2.55",
+    "langchain-community>=0.3.9",
+    "langchain-openai>=0.3.7",
+    "langchain-anthropic>=0.3.9",
+    "openai>=1.61.0",
+    "tavily-python>=0.5.0",
+    "langchain-groq>=0.2.4",
+    "arxiv>=2.1.3",
+    "pymupdf>=1.25.3",
+    "xmltodict>=0.14.2",
+    "linkup-sdk>=0.2.3",
+    "duckduckgo-search>=3.0.0",
+    "exa-py>=1.8.8",
+    "requests>=2.32.3",
+    "beautifulsoup4==4.13.3",
+    "langchain-deepseek>=0.1.2",
+    "python-dotenv==1.0.1",
+    "langgraph_supervisor",
+    "langchain_tavily",
+    "pytest",
+    "httpx>=0.24.0",
+    "markdownify>=0.11.6"
+]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.11.1", "ruff>=0.6.1"]
+
+[build-system]
+requires = ["setuptools>=73.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["open_deep_research"]
+
+[tool.setuptools.package-dir]
+"open_deep_research" = "src/open_deep_research"
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = [
+    "UP006",
+    "UP007",
+    "UP035",
+    "D417",
+    "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

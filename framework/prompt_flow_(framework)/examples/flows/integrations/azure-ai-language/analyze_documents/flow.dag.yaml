@@ -1,0 +1,144 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  document_path:
+    type: string
+    default: ./document1.txt
+  language:
+    type: string
+    default: en
+outputs:
+  extractive_summary:
+    type: string
+    reference: ${Extractive_Summarization.output}
+  abstractive_summary:
+    type: string
+    reference: ${Abstractive_Summarization.output}
+  sentiment:
+    type: string
+    reference: ${Sentiment_Analysis.output}
+  recognized_entities:
+    type: string
+    reference: ${Entity_Recognition.output}
+  pii:
+    type: string
+    reference: ${PII_Entity_Recognition.output}
+nodes:
+- name: Read_File
+  type: python
+  source:
+    type: code
+    path: read_file.py
+  inputs:
+    file_path: ${inputs.document_path}
+- name: Translator
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.translator.get_translation
+  inputs:
+    connection: azure_ai_translator
+    text: ${Read_File.output}
+    translate_to:
+    - en
+    parse_response: true
+- name: Parse_Translation
+  type: python
+  source:
+    type: code
+    path: parse_skill_to_text.py
+  inputs:
+    output: ${Translator.output}
+    skill: TRANSLATION
+- name: Create_PII_Doc
+  type: python
+  source:
+    type: code
+    path: create_document.py
+  inputs:
+    id: 1
+    text: ${Parse_Translation.output}
+    language: ${inputs.language}
+- name: PII_Entity_Recognition
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.pii_entity_recognition.get_pii_entity_recognition
+  inputs:
+    connection: azure_ai_language
+    parse_response: true
+    document: ${Create_PII_Doc.output}
+- name: Parse_PII
+  type: python
+  source:
+    type: code
+    path: parse_skill_to_text.py
+  inputs:
+    output: ${PII_Entity_Recognition.output}
+    skill: PII
+- name: Create_Redacted_Doc
+  type: python
+  source:
+    type: code
+    path: create_document.py
+  inputs:
+    id: 2
+    text: ${Parse_PII.output}
+    language: ${inputs.language}
+- name: Entity_Recognition
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.entity_recognition.get_entity_recognition
+  inputs:
+    connection: azure_ai_language
+    parse_response: true
+    document: ${Create_Redacted_Doc.output}
+- name: Extractive_Summarization
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.extractive_summarization.get_extractive_summarization
+  inputs:
+    connection: azure_ai_language
+    query: Cloud AI
+    parse_response: true
+    document: ${Create_Redacted_Doc.output}
+- name: Abstractive_Summarization
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.abstractive_summarization.get_abstractive_summarization
+  inputs:
+    connection: azure_ai_language
+    parse_response: true
+    query: quarterly results
+    summary_length: medium
+    document: ${Create_Redacted_Doc.output}
+- name: Parse_Summary
+  type: python
+  source:
+    type: code
+    path: parse_skill_to_text.py
+  inputs:
+    output: ${Abstractive_Summarization.output}
+    skill: ABSTRACTIVE
+- name: Create_Summary_Doc
+  type: python
+  source:
+    type: code
+    path: create_document.py
+  inputs:
+    id: 3
+    text: ${Parse_Summary.output}
+    language: ${inputs.language}
+- name: Sentiment_Analysis
+  type: python
+  source:
+    type: package
+    tool: language_tools.tools.sentiment_analysis.get_sentiment_analysis
+  inputs:
+    connection: azure_ai_language
+    parse_response: true
+    document: ${Create_Summary_Doc.output}

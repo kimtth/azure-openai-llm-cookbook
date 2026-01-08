@@ -1,0 +1,28 @@
+graph TB
+    subgraph Frontend["Frontend (React + Vite)"]
+        UI[React UI]
+        State[Application State]
+        Events[Event Handlers]
+    end
+    
+    subgraph Backend["Backend (FastAPI)"]
+        API[FastAPI]
+        AI[Azure AI SDKs]
+        EventHub[Event Hub]
+        Monitor[OpenTelemetry]
+    end
+    
+    subgraph Azure["Azure AI Foundry"]
+        Agents[AI Agents]
+        Models[AI Models]
+        Search[AI Search]
+        EventProcessor[Event Processor]
+    end
+    
+    UI --> API
+    API --> AI
+    API --> EventHub
+    EventHub --> EventProcessor
+    EventProcessor --> Agents
+    Agents --> Models
+    Agents --> Search

@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "reflexion"
+version = "0.1.0"
+description = ""
+authors = ["Eden Marco <emarco177@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "*"
+black = "*"
+isort = "*"
+langchain = "*"
+langchain-openai = "*"
+grandalf = "*"
+langchain-community = "*"
+langgraph = "*"
+langchain-core = "^0.3.19"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

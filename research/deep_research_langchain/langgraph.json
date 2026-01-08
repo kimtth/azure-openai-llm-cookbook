@@ -1,0 +1,12 @@
+{
+    "dockerfile_lines": [],
+    "graphs": {
+      "open_deep_research": "./src/open_deep_research/graph.py:graph",
+      "open_deep_research_multi_agent": "./src/open_deep_research/multi_agent.py:graph"
+    },
+    "python_version": "3.11",
+    "env": "./.env",
+    "dependencies": [
+      "."
+    ]
+  }

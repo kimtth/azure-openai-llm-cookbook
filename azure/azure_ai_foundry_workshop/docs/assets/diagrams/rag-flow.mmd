@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant User
+    participant Agent
+    participant AISearch as Azure AI Search
+    participant LLM as Azure AI Model
+    
+    User->>Agent: Query about health topic
+    Agent->>AISearch: Search relevant documents
+    AISearch-->>Agent: Return matching content
+    Agent->>LLM: Generate response with context
+    LLM-->>Agent: Return grounded response
+    Agent->>User: Provide answer with citations

@@ -1,0 +1,28 @@
+{
+  "name": "node-echo-skill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm install",
+    "build": "tsc --build",
+    "prestart" : "npm run build",
+    "start": "node --env-file .env dist/index.js",
+    "prebundle": "npm run build",
+    "bundle": "esbuild ./src/index.js --bundle --platform=node --metafile=dist/meta.json --outfile=dist/bundle.cjs --tree-shaking=true --keep-names",
+    "predocker": "npm run bundle",
+    "docker": "docker build -t \"$npm_package_name:$npm_package_version\" ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@microsoft/agents-hosting": "^0.1.49",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "express": "^5.0.1"
+  },
+  "devDependencies": {
+    "globals": "^15.14.0",
+    "esbuild": "^0.25.0"
+  }
+}

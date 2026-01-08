@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: aisearch-openai-rag-audio
+metadata:
+  template: aisearch-openai-rag-audio@0.0.3-beta
+services:
+  backend:
+    project: ./app
+    language: py
+    host: containerapp
+    docker:
+      remoteBuild: true
+hooks:
+    postprovision:
+      windows:
+        shell: pwsh
+        run: ./scripts/write_env.ps1; ./scripts/setup_intvect.ps1
+        interactive: true
+        continueOnError: false
+      posix:
+        shell: sh
+        run: ./scripts/write_env.sh; ./scripts/setup_intvect.sh
+        interactive: true
+        continueOnError: false
+pipeline:
+  variables:
+    - AZURE_OPENAI_SERVICE
+    - AZURE_OPENAI_RESOURCE_GROUP
+    - AZURE_OPENAI_REUSE_EXISTING
+    - AZURE_OPENAI_ENDPOINT
+    - AZURE_OPENAI_REALTIME_DEPLOYMENT
+    - AZURE_OPENAI_REALTIME_DEPLOYMENT_CAPACITY
+    - AZURE_OPENAI_REALTIME_DEPLOYMENT_VERSION
+    - AZURE_OPENAI_EMB_DEPLOYMENT_CAPACITY
+    - AZURE_OPENAI_EMB_DIMENSIONS
+    - AZURE_SEARCH_INDEX
+    - AZURE_SEARCH_SEMANTIC_CONFIGURATION
+    - AZURE_SEARCH_IDENTIFIER_FIELD
+    - AZURE_SEARCH_CONTENT_FIELD
+    - AZURE_SEARCH_TITLE_FIELD
+    - AZURE_SEARCH_EMBEDDING_FIELD
+    - AZURE_SEARCH_USE_VECTOR_QUERY
+    - AZURE_SEARCH_SERVICE
+    - AZURE_SEARCH_SERVICE_RESOURCE_GROUP
+    - AZURE_SEARCH_SERVICE_LOCATION
+    - AZURE_SEARCH_SERVICE_SKU
+    - AZURE_SEARCH_SEMANTIC_RANKER
+    - AZURE_SEARCH_REUSE_EXISTING
+    - AZURE_SEARCH_ENDPOINT
+    - AZURE_STORAGE_ACCOUNT
+    - AZURE_STORAGE_RESOURCE_GROUP
+    - AZURE_STORAGE_SKU
+    - AZURE_CONTAINER_APP_NAME
+    - AZURE_LOG_ANALYTICS
+    - AZURE_CONTAINER_APPS_WORKLOAD_PROFILE
